@@ -9,6 +9,7 @@ import { PillBottle } from "lucide-react";
 import LatestVisitedDoctor from "@/components/ui/lastVisttedDoc";
 import ServiceCard from "@/components/ui/showService";
 import TotoalAppointment from "@/components/ui/paintentBook";
+import WorkingProcess from "@/components/ui/ workingprocess";
 export default function Home() {
   return (
     <div className="p-4">
@@ -69,10 +70,13 @@ export default function Home() {
             <div className="text-center mt-7">
             <Button className="w-fit bg-indigo-600 px-10 py-5 text-md hover:bg-indigo-800 hover:cursor-pointer hover:">Book Appointment</Button>
             </div>
-            <div className="text-center flex  justify-center pt-30">
+            <div className="flex justify-center absolute bottom-0 items-center w-full">
+              <div >
               <TotoalAppointment/>
+              </div>
             </div>
         </div>
+        
         <div className="w-full">
           <div className=" h-100 w-45  border-zinc-900/10 border-l-2 border-b-2 rounded-bl-2xl "></div>
           <div className=" h-80 absolute right-10  top-95 w-60  border-dashed   border-zinc-900/10 border-l-2 border-t-2 rounded-tl-2xl ">
@@ -88,6 +92,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* //sedonvb */}
+    <WorkingProcess/>
     </div>
   );
 }

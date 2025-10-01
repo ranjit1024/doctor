@@ -1,9 +1,8 @@
+import Image from "next/image";
 const TotoalAppointment = () => {
   const patients = [
-    { id: 1, avatar: "/patient1.jpg", name: "Patient 1" },
-    { id: 2, avatar: "/patient2.jpg", name: "Patient 2" },
-    { id: 3, avatar: "/patient3.jpg", name: "Patient 3" },
-    { id: 4, avatar: "/patient4.jpg", name: "Patient 4" },
+    { id: 1, avatar: "/person1.jpg", name: "Patient 1" },
+    { id: 2, avatar: "/person1.jpg", name: "Patient 2" },
   ];
 
   const additionalCount = 5;
@@ -20,7 +19,9 @@ const TotoalAppointment = () => {
             className="relative w-12 h-12 rounded-full border-4 border-white overflow-hidden"
             style={{ marginLeft: index > 0 ? "-12px" : "0" }}
           >
-            <img
+            <Image
+              width={200}
+              height={200}
               src={patient.avatar}
               alt={patient.name}
               className="w-full h-full object-cover"

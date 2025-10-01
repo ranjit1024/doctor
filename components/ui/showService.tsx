@@ -1,11 +1,13 @@
 import React from 'react';
-
+import Image from 'next/image';
 const ServiceCard = () => {
   return (
     <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-md max-w-md">
       {/* Image Container */}
       <div className="flex-shrink-0">
-        <img
+        <Image 
+          height={400}
+          width={400}
           src="/service.jpg"
           alt="Healthcare professional"
           className="w-24 h-24 rounded-xl object-cover"

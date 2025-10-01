@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
-
+import Image from 'next/image';
 const LatestVisitedDoctor = () => {
   const doctors = [
     { id: 1, image: '/doc1.jpg', alt: 'Doctor 1' },
@@ -30,7 +30,9 @@ const LatestVisitedDoctor = () => {
             style={{ zIndex: doctors.length - index }}
           >
             <div className="w-12 h-12 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
-              <img
+              <Image
+                height={200}
+                width={200}
                 src={doctor.image}
                 alt={doctor.alt}
                 className="w-full h-full object-cover"

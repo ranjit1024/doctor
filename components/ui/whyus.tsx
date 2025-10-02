@@ -1,3 +1,4 @@
+import Image from "next/image";
 const features = [
   {
     icon: <svg className="w-6 h-6 text-purple-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v2a2 2 0 002 2h2a2 2 0 002-2v-2m-8 0a2 2 0 01-2-2V7a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2m-8 0h2m4 0h2" /></svg>,
@@ -29,7 +30,7 @@ export default function Whyus() {
         <div className="md:w-1/2">
           <div className="rounded-xl overflow-hidden shadow-lg mb-6 md:mb-0">
             {/* Replace src below with your local import or public path */}
-            <img src="/your-image-path.jpg" alt="Medical team" className="w-full h-64 object-cover" />
+            <Image src="/your-image-path.jpg" alt="Medical team" className="w-full h-64 object-cover" />
           </div>
         </div>
         {/* Right: Text */}

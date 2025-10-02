@@ -29,7 +29,7 @@ const BookAppointmentButton =  ({title,subtitle,order}:{
       `}
     >
       <div className="flex flex-col items-start relative">
-        <span className="font-semibold">{title}</span>
+        <span className="font-semibold ">{title}</span>
         <span className="text-xs text-gray-500 mt-2">
           {subtitle}
         </span>

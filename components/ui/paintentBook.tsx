@@ -3,12 +3,14 @@ const TotoalAppointment = () => {
   const patients = [
     { id: 1, avatar: "/person1.jpg", name: "Patient 1" },
     { id: 2, avatar: "/person1.jpg", name: "Patient 2" },
+
+    
   ];
 
   const additionalCount = 5;
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-6 w-fit">
+    <div className="bg-white rounded-2xl shadow-sm p-6 w-xs">
       <h2 className="text-gray-800 font-semibold text-lg mb-4">
         Total Appointment
       </h2>

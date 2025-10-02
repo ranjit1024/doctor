@@ -99,30 +99,51 @@ export default function Home() {
        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12 text-gray-900">
         Working Process
       </h2>
-      <div className="w-[100%]  grid grid-cols[40%_20%_40%]">
-        <div className="flex flex-col gap-20 h-full">
-        <div className="flex items-start relative ">
-          <div className="z-10">
-
-       <BookAppointmentButton />
-          </div>
-       <div className="absolute top-6 left-74 ">
-       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 306 94" width="306" height="94"><metadata></metadata><defs><style className="style-fonts">
-      </style></defs><rect x="0" y="0" width="306" height="94" fill="#ffffff" fillOpacity={0}></rect><g stroke-linecap="round"><g transform="translate(10 10) rotate(0 143 37)"><path d="M0 0 C35.57 0, 71.14 0, 127 0 M0 0 C33.12 0, 66.24 0, 127 0 M127 0 C137.67 0, 143 5.33, 143 16 M127 0 C137.67 0, 143 5.33, 143 16 M143 16 C143 32.71, 143 49.42, 143 58 M143 16 C143 28.33, 143 40.65, 143 58 M143 58 C143 68.67, 148.33 74, 159 74 M143 58 C143 68.67, 148.33 74, 159 74 M159 74 C205.93 74, 252.86 74, 286 74 M159 74 C205.19 74, 251.39 74, 286 74" stroke="#1e1e1e" strokeOpacity={0.2} stroke-width="2" fill="none"></path></g></g><mask></mask></svg>
-      </div>
-      </div>
-        <div className="flex items-start relative ">
-          <div className="z-10">
-
-       <BookAppointmentButton/>
-          </div>
-       <div className="absolute -top-14 left-75 ">
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 306 94" width="306" height="94"><metadata></metadata><defs><style className="style-fonts">
-      </style></defs><rect x="0" y="0" width="306" height="94" fill="#ffffff" fillOpacity={0}></rect><g stroke-linecap="round"><g transform="translate(10 84) rotate(0 143 -37)"><path strokeOpacity={0.2} d="M0 0 C35.57 0, 71.14 0, 127 0 M0 0 C33.12 0, 66.24 0, 127 0 M127 0 C137.67 0, 143 -5.33, 143 -16 M127 0 C137.67 0, 143 -5.33, 143 -16 M143 -16 C143 -32.71, 143 -49.42, 143 -58 M143 -16 C143 -28.33, 143 -40.65, 143 -58 M143 -58 C143 -68.67, 148.33 -74, 159 -74 M143 -58 C143 -68.67, 148.33 -74, 159 -74 M159 -74 C205.93 -74, 252.86 -74, 286 -74 M159 -74 C205.19 -74, 251.39 -74, 286 -74" stroke="#1e1e1e" stroke-width="2"  fill="none"></path></g></g><mask></mask></svg>
-      </div>
-      </div>
-      </div>
+      <div className="w-[100%] grid grid-cols-[25%_50%_25%] ">
+        <div className="flex flex-col gap-30 ">
+        
+          <BookAppointmentButton title="Book Appointment"  subtitle="shedule online in minutes" order={1}/>
+     
+          <BookAppointmentButton title="Consult a Docktor " subtitle="Meet with specialists doctor in local " order={2}/>
         </div>
+        <div className="grid  grid-cols-[30%_40%_30%] w-[100%]">
+          <div className="realtive flex flex-col  relative">
+
+            <svg className="absolute -right-4 -z-2 top-7"  version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 124" width="285" height="124"><metadata></metadata><defs><style className="style-fonts">
+      </style></defs><rect x="0" y="0" width="285" height="124" fill="#ffffff" fillOpacity={0}></rect><g stroke-linecap="round"><g transform="translate(275 114) rotate(0 -132.5 -52)"><path d="M0 0 C-31.21 0, -62.41 0, -116.5 0 M0 0 C-24.81 0, -49.61 0, -116.5 0 M-116.5 0 C-127.17 0, -132.5 -5.33, -132.5 -16 M-116.5 0 C-127.17 0, -132.5 -5.33, -132.5 -16 M-132.5 -16 C-132.5 -38.88, -132.5 -61.76, -132.5 -88 M-132.5 -16 C-132.5 -43.72, -132.5 -71.43, -132.5 -88 M-132.5 -88 C-132.5 -98.67, -137.83 -104, -148.5 -104 M-132.5 -88 C-132.5 -98.67, -137.83 -104, -148.5 -104 M-148.5 -104 C-172.62 -104, -196.74 -104, -265 -104 M-148.5 -104 C-189.28 -104, -230.06 -104, -265 -104" stroke="gray" strokeOpacity={0.2} stroke-width="2" fill="none"></path></g></g><mask></mask></svg>
+        
+
+      <svg className="absolute bottom-8 -left-20 -z-2" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 289 112.9309859154937" width="289" height="112.9309859154937"><metadata></metadata><defs><style className="style-fonts">
+      </style></defs><rect x="0" y="0" width="289" height="112.9309859154937" fill="#ffffff" fillOpacity={0}></rect><g stroke-linecap="round"><g transform="translate(279 10) rotate(0 -134.5 46.46549295774685)"><path d="M0 0 C-40.83 0, -81.65 0, -118.5 0 M0 0 C-33.98 0, -67.95 0, -118.5 0 M-118.5 0 C-129.17 0, -134.5 5.33, -134.5 16 M-118.5 0 C-129.17 0, -134.5 5.33, -134.5 16 M-134.5 16 C-134.5 29.62, -134.5 43.24, -134.5 76.93 M-134.5 16 C-134.5 34.08, -134.5 52.17, -134.5 76.93 M-134.5 76.93 C-134.5 87.6, -139.83 92.93, -150.5 92.93 M-134.5 76.93 C-134.5 87.6, -139.83 92.93, -150.5 92.93 M-150.5 92.93 C-191.65 92.93, -232.79 92.93, -269 92.93 M-150.5 92.93 C-194.13 92.93, -237.77 92.93, -269 92.93" stroke="gray" stroke-width="2" fill="none" strokeOpacity={0.2}></path></g></g><mask></mask></svg>
+
+
+   
+          </div>
+          <div className="flex justify-center items-center">
+          <div className="border w-full rounded-2xl p-5  z-4 bg-white text-center">Working Process
+
+</div>
+          </div>
+           <div className="flex flex-col  relative">
+           
+            <svg className="top-9 absolute -left-3 -z-2"  version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 110.10000000000036" width="240" height="110.10000000000036"><metadata></metadata><defs><style className=" top-100">
+      </style></defs><rect x="0" y="0" width="240" height="110.10000000000036" fill="#ffffff"></rect><g stroke-linecap="round"><g transform="translate(10 100.10000000000036) rotate(0 110 -45.05000000000018)"><path d="M0 0 C19.66 0, 39.32 0, 97 0 M0 0 C31.62 0, 63.23 0, 97 0 M97 0 C107.67 0, 113 -5.33, 113 -16 M97 0 C107.67 0, 113 -5.33, 113 -16 M113 -16 C113 -31.56, 113 -47.13, 113 -74.1 M113 -16 C113 -30.85, 113 -45.71, 113 -74.1 M113 -74.1 C113 -84.77, 118.33 -90.1, 129 -90.1 M113 -74.1 C113 -84.77, 118.33 -90.1, 129 -90.1 M129 -90.1 C148.02 -90.1, 167.03 -90.1, 220 -90.1 M129 -90.1 C161.47 -90.1, 193.94 -90.1, 220 -90.1" stroke="gray"  strokeWidth="1" fill="none" fillOpacity={0} strokeOpacity={0.2}></path></g></g><mask></mask></svg>
+
+
+      <svg className="absolute bottom-8 -left-3 -z-2" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 246 118.39999999999964" width="246" height="118.39999999999964"><metadata></metadata><defs><style className="style-fonts">
+      </style></defs><rect x="0" y="0" width="246" height="118.39999999999964" fill="gray" fillOpacity={0}></rect><g stroke-linecap="round"><g transform="translate(10 10) rotate(0 113 49.19999999999982)"><path d="M0 0 C24.07 0, 48.15 0, 97 0 M0 0 C37.97 0, 75.94 0, 97 0 M97 0 C107.67 0, 113 5.33, 113 16 M97 0 C107.67 0, 113 5.33, 113 16 M113 16 C113 33.4, 113 50.8, 113 82.4 M113 16 C113 42.43, 113 68.87, 113 82.4 M113 82.4 C113 93.07, 118.33 98.4, 129 98.4 M113 82.4 C113 93.07, 118.33 98.4, 129 98.4 M129 98.4 C158.79 98.4, 188.58 98.4, 226 98.4 M129 98.4 C151.61 98.4, 174.23 98.4, 226 98.4" stroke="gray" strokeOpacity={0.2} strokeWidth="2" fill="none"></path></g></g><mask></mask></svg>
+
+      
+          </div>
+          
+         
+        
+        </div>
+        <div className="flex flex-col gap-28">
+          <BookAppointmentButton title="Book Appointment" subtitle="shedule online in minutes" order={1}/>
+          <BookAppointmentButton title="Consult a Docktor " subtitle="Meet with specialists doctor in local " order={2}/>
+        </div>
+      </div>
     </div>
     </div>
   );

@@ -2,9 +2,9 @@ import { CpuIcon } from "lucide-react"; // You can install react-icons if not al
 
 export default function DoctorCard() {
   return (
-    <div className=" rounded-2xl p-6 bg-gradient-to-br  dark:from-gray-850 dark:to-gray-900 bg-violet-50/50 border border-transparent hover:border-violet-400 transition-all duration-300 b relative overflow-hidden">
+    <div className=" rounded-2xl p-6 bg-gradient-to-br  dark:from-gray-850 dark:to-gray-900 bg-violet-50/50 border border-transparent hover:border-violet-400  b relative overflow-hidden">
       {/* Animated Icon Box */}
-      <div className="w-14 h-14 flex items-center justify-center bg-violet-100 dark:bg-violet-900 rounded-xl mb-4 transition-transform group-hover:rotate-6 group-hover:scale-105">
+      <div className="w-14 h-14 flex items-center justify-center bg-violet-100 dark:bg-violet-900 rounded-xl mb-4  group-hover:rotate-6 group-hover:scale-105">
         <CpuIcon className="text-violet-500 text-3xl" />
       </div>
       {/* Title */}

@@ -22,7 +22,7 @@ const BookAppointmentButton =  ({title,subtitle,order}:{
         hover:shadow-md 
         hover:border-gray-300
         
-        transition-all duration-200
+       
      
       
         

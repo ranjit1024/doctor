@@ -16,7 +16,7 @@ const LatestVisitedDoctor = () => {
         <h2 className="text-xl font-semibold text-gray-900">
           Latest Visited<br />Doctor
         </h2>
-        <button className="p-2 hover:bg-gray-50 rounded-lg transition-colors">
+        <button className="p-2 hover:bg-gray-50 rounded-lg ">
           <ArrowUpRight className="w-5 h-5 text-gray-600" />
         </button>
       </div>

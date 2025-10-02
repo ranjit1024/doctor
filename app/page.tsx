@@ -10,102 +10,140 @@ import { motion } from "framer-motion";
 import LatestVisitedDoctor from "@/components/ui/lastVisttedDoc";
 import ServiceCard from "@/components/ui/showService";
 import TotoalAppointment from "@/components/ui/paintentBook";
-
 import BookAppointmentButton from "@/components/ui/work1";
-
 import DoctorCard from "@/components/ui/chossUpCard";
 import AppointmentBanner from "@/components/ui/banner";
-import TestimonialsSection from "@/components/ui/testominla";
-
 export default function Home() {
   return (
     <div className="p-4">
       <header>
-        <nav className="grid grid-cols-[10%_80%_10%] ">
+        <motion.nav
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, x: 20 }}
+          transition={{
+            duration: 0.4,
+            ease: "easeInOut",
+          }}
+          className="grid grid-cols-[10%_80%_10%] "
+        >
           <div className="flex items-center gap-2">
             <Image src={logo} height={30} width={35} alt="logo" />
             <p className="text-[1.2rem] font-[500] text-gray-900">MedVisit</p>
           </div>
-          <div className="flex items-center w-[100%] justify-center gap-10">
-             <motion.a
-        href="/"
-        className="relative text-lg font-medium text-gray-700 hover:text-gray-900"
-        whileHover="hover"
-      >
-        Home
-        <motion.span
-          className="absolute -bottom-1 left-0 h-0.75 bg-violet-600"
-          initial={{ width: 0 }}
-          variants={{
-            hover: { width: "100%" }
-          }}
-          transition={{ duration: 0.3 }}
-        />
-      </motion.a>
-      
-      <motion.a
-        href="/"
-        className="relative text-lg font-medium text-gray-700 hover:text-gray-900"
-        whileHover="hover"
-      >
-        About Us
-        <motion.span
-          className="absolute -bottom-1 left-0 h-0.75 bg-violet-600"
-          initial={{ width: 0 }}
-          variants={{
-            hover: { width: "100%" }
-          }}
-          transition={{ duration: 0.3 }}
-        />
-      </motion.a>
-             
+          <div className="flex items-center w-[100%] justify-center gap-8">
+            <motion.div
+              className="relative text-lg hover:cursor-pointer text-neutral-900 hover:text-gray-900"
+              whileHover="hover"
+            >
+              Home
+              <motion.span
+                className="absolute -bottom-1 left-0 h-0.75 bg-violet-600"
+                initial={{ width: 0 }}
+                variants={{
+                  hover: { width: "100%" },
+                }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.div>
+
+            <motion.div
+              className="relative text-lg  text-neutral-900 hover:text-gray-900 hover:cursor-pointer"
+              whileHover="hover"
+            >
+              About Us
+              <motion.span
+                className="absolute -bottom-1 left-0 h-0.75 bg-violet-600"
+                initial={{ width: 0 }}
+                variants={{
+                  hover: { width: "100%" },
+                }}
+              />
+            </motion.div>
           </div>
           <div className="text-end">
             <Button variant={"outline"}>Contact</Button>
           </div>
-        </nav>
+        </motion.nav>
       </header>
       <div className=" bg-neutral-50 rounded-2xl m-5 h-[110vh]  grid grid-cols-[15%_70%_15%]">
         <div className="w-full">
           <div className="border-dashed h-100 w-40  border-zinc-900/10 border-r-2 border-b-2 rounded-br-2xl "></div>
           <div className=" h-80 absolute top-94 w-50   border-zinc-900/10 border-r-2 border-t-2 rounded-tr-2xl ">
-            <div className="absolute -top-5  right-4">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{
+                duration: 0.4,
+                ease: "easeInOut",
+              }}
+              className="absolute -top-5  right-4"
+            >
               <Icon>
                 <Ambulance />
               </Icon>
-            </div>
+            </motion.div>
 
-            <div className="absolute top-43 left-10 ">
+            <motion.div className="absolute top-43 left-10 ">
               <LatestVisitedDoctor />
-            </div>
+            </motion.div>
           </div>
         </div>
         <div className="flex relative item-center justify-center w-[100%] flex-col">
-          <div className="absolute top-30  left-20">
+          <motion.div 
+            initial={{ scale: 0, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  transition={{
+    type: "spring",
+    stiffness: 100,
+    damping: 20
+  }}
+          className="absolute top-30  left-20">
             <Icon>
               <HeartPlusIcon />
             </Icon>
-          </div>
-          <div className="absolute top-30  right-20">
+          </motion.div>
+          <motion.div
+
+           initial={{ scale: 0, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  transition={{
+    type: "spring",
+    stiffness: 100,
+    damping: 20
+  }}
+          className="absolute top-30  right-20">
+ 
             <Icon>
               <Pill />
             </Icon>
-          </div>
+          </motion.div>
+          <motion.div
+           initial={{ y:10, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{
+    type: "spring",
+    stiffness: 100,
+    damping: 20
+  }}
+          className="space-y-7 pb-20 ">
           <div className="text-center">
             <h1 className="text-7xl mb-2 ">Skip the calls</h1>
             <h1 className="text-7xl">Book care online</h1>
           </div>
-          <div className="text-center mt-5 text-gray-500  flex justify-center ">
+          <div className="text-center  text-gray-500  flex justify-center ">
             <p className="w-[80%] text-lg">
               Healthcare that fits the schedule. View real‑time slots from
               trusted local docktors, lock in a visit in a few clicks
             </p>
           </div>
-          <div className="text-center mt-7">
+          <div className="text-center">
             <Button className="w-fit bg-indigo-600 px-7 py-6 text-md hover:bg-indigo-800 hover:cursor-pointer hover:">
               Book Appointment
             </Button>
           </div>
+          </motion.div>
           <div className="flex justify-center absolute bottom-0 items-center w-full">
             <div className="p-5">
               <TotoalAppointment />
@@ -116,11 +154,19 @@ export default function Home() {
         <div className="w-full">
           <div className=" h-100 w-45  border-zinc-900/10 border-l-2 border-b-2 rounded-bl-2xl "></div>
           <div className=" h-80 absolute right-10  top-95 w-60  border-dashed   border-zinc-900/10 border-l-2 border-t-2 rounded-tl-2xl ">
-            <div className="absolute -top-5  left-10">
+            <motion.div
+             initial={{ scale: 0, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  transition={{
+    type: "spring",
+    stiffness: 100,
+    damping: 20
+  }}
+            className="absolute -top-5  left-10">
               <Icon>
                 <StethoscopeIcon />
               </Icon>
-            </div>
+            </motion.div>
             <div className="absolute  -bottom-10  -left-20   ">
               <ServiceCard />
             </div>
@@ -344,11 +390,22 @@ export default function Home() {
           <div className="w-[100%] mt-15">
             <AppointmentBanner />
           </div>
-          <div className="w-[100%] mt-15">
-   
-          </div>
         </div>
       </div>
+
+      <footer className="w-[100%] border-t-1  bg-gray-50 p-5 flex justify-between ">
+        <div className="flex items-center gap-2">
+          <Image src={logo} height={40} width={40} alt="logo"></Image>
+          <p className="text-lg text-neutral-800 font-medium">MedVisit</p>
+        </div>
+
+        <ul className="flex gap-3 ">
+          <li className="hover:text-violet-600 hover:cursor-pointer">Home</li>
+          <li className="hover:text-violet-600 hover:cursor-pointer">
+            About us
+          </li>
+        </ul>
+      </footer>
     </div>
   );
 }

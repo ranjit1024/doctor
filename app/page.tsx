@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import logo from "../public/filalogo.png";
-import { Ambulance, MoreHorizontal, Pill } from "lucide-react";
+import { Ambulance, Pill } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { StethoscopeIcon } from "lucide-react";

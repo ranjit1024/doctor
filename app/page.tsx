@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import logo from "../public/filalogo.png";
-import { Ambulance, Pill } from "lucide-react";
+import { Ambulance, MoreHorizontal, Pill } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { StethoscopeIcon } from "lucide-react";
@@ -304,7 +304,12 @@ function DeskTop() {
               </Icon>
             </motion.div>
 
-            <motion.div className="absolute top-43 left-10 ">
+            <motion.div 
+            initial={{ opacity: 0, y: -50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
+            className="absolute top-43 left-10 ">
               <LatestVisitedDoctor />
             </motion.div>
           </div>
@@ -348,8 +353,8 @@ function DeskTop() {
   }}
           className="space-y-7 pb-20 ">
           <div className="text-center">
-            <h1 className="text-[3.5rem] mb-2 ">Skip the calls</h1>
-            <h1 className="text-[]3.5rem">Book care online</h1>
+            <h1 className="text-[4.5rem] -mb-5 ">Skip the calls</h1>
+            <h1 className="text-[4.5rem] ">Book care online</h1>
           </div>
           <div className="text-center  text-gray-500  flex justify-center ">
             <p className="w-[80%] text-lg">
@@ -366,9 +371,14 @@ function DeskTop() {
           </div>
           </motion.div>
           <div className="flex justify-center absolute bottom-0 items-center w-full">
-            <div className="p-5">
+            <motion.div
+            initial={{ opacity: 0, scale:0.8 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
+            className="p-5">
               <TotoalAppointment />
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -388,9 +398,14 @@ function DeskTop() {
                 <StethoscopeIcon />
               </Icon>
             </motion.div>
-            <div className="absolute  -bottom-10  -left-20   ">
+            <motion.div
+            initial={{ opacity: 0, y: -50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
+            className="absolute  -bottom-10  -left-20   ">
               <ServiceCard />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -400,7 +415,12 @@ function DeskTop() {
           Working Process
         </h2>
         <div className="w-[100%] grid grid-cols-[25%_50%_25%] ">
-          <div className="flex flex-col gap-30 ">
+          <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
+          className="flex flex-col gap-30 ">
             <BookAppointmentButton
               title="Book Appointment"
               subtitle="shedule online in minutes"
@@ -412,8 +432,14 @@ function DeskTop() {
               subtitle="Meet with specialists doctor in local "
               order={2}
             />
-          </div>
-          <div className="grid  grid-cols-[30%_40%_30%] w-[100%]">
+          </motion.div>
+
+          <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
+          className="grid  grid-cols-[30%_40%_30%] w-[100%]">
             <div className="realtive flex flex-col  relative">
               <svg
                 className="absolute -right-4 -z-2 top-7"
@@ -557,8 +583,14 @@ function DeskTop() {
                 <mask></mask>
               </svg>
             </div>
-          </div>
-          <div className="flex flex-col gap-28">
+          </motion.div>
+
+          <motion.div
+          initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
+          className="flex flex-col gap-28">
             <BookAppointmentButton
               title="Diagnosis & Tests"
               subtitle="Get accurate reports "
@@ -569,11 +601,16 @@ function DeskTop() {
               subtitle="Follw-up care and support "
               order={4}
             />
-          </div>
+          </motion.div>
         </div>
         <div className="mt-25">
           <div className="w-[100%] grid grid-cols-2 gap-3">
-            <div>
+            <motion.div
+            initial={{ opacity: 0, x: -50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
+            >
               <Image
                 className="rounded-2xl size-full"
                 src={
@@ -584,12 +621,19 @@ function DeskTop() {
                 width={1200}
                 alt="dfsa"
               />
-            </div>
-            <div className="flex justify-center items-start p-5 flex-col w-full ">
+            </motion.div>
+            <motion.div
+            initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
+            className="flex justify-center items-start p-5 flex-col w-full ">
               <button className="px-7 py-[0.4rem] rounded-2xl border-1 bg-gradient-to-br from-gray-50/80  to-violet-50  text-gray-900  font-medium">
                 Why Choose Us
               </button>
-              <div className="mt-6">
+              <div
+              
+              className="mt-6">
                 <h1 className="text-[3.2rem]   font-medium">Trusted by </h1>
                 <h1 className="text-[3.2rem] -mt-3 w-[100%] font-medium ">
                   Thousands of Patients
@@ -600,17 +644,52 @@ function DeskTop() {
                 treatment but also a comforting, reassuring experience that
                 places your well-being at the center of everything we do
               </p>
-            </div>
+            </motion.div>
+            
           </div>
           <div className="mt-10 flex w-[100%] gap-5">
+            <motion.div
+            initial={{ opacity: 0, y: -50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
+            className="">
             <DoctorCard />
+            </motion.div>
+            <motion.div
+            initial={{ opacity: 0, y: -50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" , delay:0.1}}
+  viewport={{ once: true, amount: 0.3 }}
+            className="">
             <DoctorCard />
+            </motion.div>
+            <motion.div
+            initial={{ opacity: 0, y: -50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" , delay:0.2 }}
+  viewport={{ once: true, amount: 0.3 }}
+            className="">
             <DoctorCard />
+            </motion.div>
+            <motion.div
+            initial={{ opacity: 0, y: -50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut", delay:0.4 }}
+  viewport={{ once: true, amount: 0.3 }}
+            className="">
             <DoctorCard />
+            </motion.div>
+            
           </div>
-          <div className="w-[100%] mt-15">
+          <motion.div
+          initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
+          className="w-[100%] mt-15">
             <AppointmentBanner />
-          </div>
+          </motion.div>
         </div>
       </div>
 

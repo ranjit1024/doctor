@@ -13,7 +13,103 @@ import TotoalAppointment from "@/components/ui/paintentBook";
 import BookAppointmentButton from "@/components/ui/work1";
 import DoctorCard from "@/components/ui/chossUpCard";
 import AppointmentBanner from "@/components/ui/banner";
-export default function Home() {
+import { useMediaQuery } from "react-responsive";
+export default function App(){
+  const isMobile = useMediaQuery({maxWidth:768});
+  return isMobile ? <Mobile/>:<DeskTop/>
+}
+function Mobile(){
+  return  <div className="p-3">
+      <header className="bg-white flex   top-5 w-[99%] max-md:w-[95%]    z-10  items-center justify-between gap-2  rounded-2xl px-4 py-2 shadow-blue-200 shadow backdrop-blur-md" >
+        <div className="flex items-center gap-2">
+            <Image src={logo} height={20} width={30} alt="logo" />
+            <p className="text-[1.1rem] pt-1 font-[500] text-gray-900">MedVisit</p>
+          </div>
+      </header>
+      <div className="h-[75vh]  w-[100%] mt-20">
+         <motion.div
+             initial={{ x: -30, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+ 
+          className="space-y-4  ">
+          <div className="text-start font-medium text-[3.7rem] space-y-2">
+           
+            <h1 className=" leading-18 "> Skip the</h1>
+            <p className="leading-16">Calls Book </p>
+            <p className="leading-16">Care online </p>
+          </div>
+          <div className="text-start  text-gray-500  flex justify-center mt-5 ">
+            <p className="w-[100%] text-lg">
+              Healthcare that fits the schedule. View real‑time slots from
+              trusted local docktors, lock in a visit in a few clicks
+            </p>
+          </div>
+          <div className="text-start mt-7">
+            <Button className="w-fit bg-indigo-600 px-7 py-6 text-md hover:bg-indigo-800 hover:cursor-pointer hover:">
+              Book Appointment
+            </Button>
+          </div>
+          </motion.div>
+          
+      </div>
+      <div className="grid grid-cols-2 relative">
+        <div className="flex flex-col gap-4">
+        <LatestVisitedDoctor/>
+        <TotoalAppointment/>
+        </div>
+        <div className="pl-3 pt-3 pb-3 bg-transparent relative ">
+          <div className=" bg-transparent border-2 rounded-tl-2xl rounded-bl-2xl -z-1 h-[90%] absolute top-5 w-[100%]">
+               <motion.div 
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+    type: "spring",
+    stiffness: 100,
+    damping: 20
+  }}
+          className="absolute top-30  left-25">
+            <Icon>
+              <HeartPlusIcon />
+            </Icon>
+          </motion.div>
+               <motion.div 
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+    type: "spring",
+    stiffness: 100,
+    damping: 20
+  }}
+          className="absolute -bottom-2  left-25">
+            <Icon>
+              <StethoscopeIcon />
+            </Icon>
+          </motion.div>
+               <motion.div 
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+    type: "spring",
+    stiffness: 100,
+    damping: 20
+  }}
+          className="absolute top-45 right-30">
+            <div className="scale-z-100">
+            <Icon>
+              <Ambulance />
+            </Icon>
+            </div>
+          </motion.div>
+
+
+
+          </div>
+        </div>
+      </div>
+      </div>
+}
+function DeskTop() {
   return (
     <div className="p-4">
       <header>
@@ -129,8 +225,8 @@ export default function Home() {
   }}
           className="space-y-7 pb-20 ">
           <div className="text-center">
-            <h1 className="text-7xl mb-2 ">Skip the calls</h1>
-            <h1 className="text-7xl">Book care online</h1>
+            <h1 className="text-[3.5rem] mb-2 ">Skip the calls</h1>
+            <h1 className="text-[]3.5rem">Book care online</h1>
           </div>
           <div className="text-center  text-gray-500  flex justify-center ">
             <p className="w-[80%] text-lg">

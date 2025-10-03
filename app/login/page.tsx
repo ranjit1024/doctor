@@ -1,20 +1,8 @@
 "use client"
-import { useState } from 'react';
-import { Eye, EyeOff, Shield, Stethoscope, Calendar, Lock, Phone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import {  Shield, Stethoscope, Calendar, Lock, Phone } from 'lucide-react';
+import Image from 'next/image';
 
 export default function DoctorAppointmentLogin() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = async (e:any) => {
-    e.preventDefault();
-    setIsLoading(true);
-    // Authentication logic for medical appointments
-  };
-
   return (
     <div className="min-h-screen flex bg-gray-50">
       {/* Medical Illustration Side */}
@@ -65,20 +53,17 @@ export default function DoctorAppointmentLogin() {
           {/* Login Form */}
            <button
               type="submit"
-              disabled={isLoading}
+             
               className="w-full bg-gray-100 hover:bg-indigo-400 hover:cursor-pointer hover:text-white text-gray-800 disabled:bg-blue-300 bold py-4 rounded-lg hover:shadow-lg disabled:cursor-not-allowed transform hover:-translate-y-0.5"
             >
-              {isLoading ? (
-                <span className="flex items-center justify-center gap-3">
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  Securing Access...
-                </span>
-              ) : (
+              
+               
+            
                 <span className="flex items-center justify-center gap-2 font-medium">
-                  <img width="30" height="30" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
+                  <Image width="30" height="30" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
                   Login With google
                 </span>
-              )}
+              
             </button>
 
           {/* New Patient Registration */}

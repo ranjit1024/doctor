@@ -13,8 +13,9 @@ import TotoalAppointment from "@/components/ui/paintentBook";
 import BookAppointmentButton from "@/components/ui/work1";
 import DoctorCard from "@/components/ui/chossUpCard";
 import AppointmentBanner from "@/components/ui/banner";
+import MobileAppointmentBanner from "@/components/ui/Mbanner";
 import { useMediaQuery } from "react-responsive";
-import AppointmentJourney from "@/components/ui/appointment";
+
 export default function App(){
   const isMobile = useMediaQuery({maxWidth:768});
   return isMobile ? <Mobile/>:<DeskTop/>
@@ -98,11 +99,12 @@ function Mobile(){
         <h2 className="text-3xl md:text-4xl font-semibold text-center  text-gray-900">
           Working Process
         </h2>
-        <div className="grid grid-cols-[5%_95%] w-[100%] h-[100%] mt-10 p-2">
-          <div className="p-1 h-[100%] relative ">
-            <div className="p-[0.9] w-fit bg-gray-300 h-[100%]"></div>
+        <div className="grid grid-cols-[100%] w-[100%] h-[100%] mt-10 p-2">
+         
+        <div className="flex gap-10 flex-col relative w-[100%]">
+          <div className="absolute w-[100%] h-[100%] flex justify-center">
+            <div className="w-[2px] rounded-2xl animate-pulse bg-gradient-to-t to-gray-300 from-gray-100 -z-10"></div>
           </div>
-        <div className="flex gap-10 flex-col w-[100%]">
            <BookAppointmentButton
               title="Book Appointment"
               subtitle="shedule online in minutes"
@@ -144,7 +146,25 @@ function Mobile(){
                 places your well-being at the center of everything we do
               </p>
             </div>
+           
       </div>
+      <div className="mt-15 grid ">
+        <MobileAppointmentBanner/>
+        
+      </div>
+      <footer className="w-[100%] border-t-1 pt-3  mt-10 flex justify-between ">
+        <div className="flex items-center gap-2">
+          <Image src={logo} height={40} width={40} alt="logo"></Image>
+          <p className="text-lg text-neutral-800 font-medium">MedVisit</p>
+        </div>
+
+        <ul className="flex gap-3 text-zinc-700 ">
+          <li className="hover:text-violet-600 hover:cursor-pointer">Home</li>
+          <li className="hover:text-violet-600 hover:cursor-pointer">
+            About us
+          </li>
+        </ul>
+      </footer>
       </div>
 }
 function DeskTop() {

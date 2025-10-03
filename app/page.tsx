@@ -281,7 +281,7 @@ function DeskTop() {
             </motion.div>
           </div>
           <div className="text-end">
-            <Button variant={"outline"}>Contact</Button>
+            <Button onClick={()=>{router.push('/contact')}} variant={"outline"}>Contact</Button>
           </div>
         </motion.nav>
       </header>

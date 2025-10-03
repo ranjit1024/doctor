@@ -1,5 +1,9 @@
+"use client"
+import { useRouter } from "next/navigation";
+import React from "react";
 
 export default function MobileAppointmentBanner() {
+  const router = useRouter()
   return (
     <div className="w-full 0  flex justify-center p-1">
       <div
@@ -16,7 +20,9 @@ export default function MobileAppointmentBanner() {
           Fast, simple, and secure. Choose your doctor, select a time, and confirm your visit online.
         </p>
         <div className="text-start">
-        <button className="bg-indigo-600  hover:bg-indigo-700 text-white px-6 py-2 rounded-md font-medium  ">
+        <button onClick={()=>{
+          router.push('/auth/signin')
+        }} className="bg-indigo-600  hover:bg-indigo-700 text-white px-6 py-2 rounded-md font-medium  ">
           Schedule Now
         </button>
         </div>

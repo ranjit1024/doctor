@@ -15,12 +15,13 @@ import DoctorCard from "@/components/ui/chossUpCard";
 import AppointmentBanner from "@/components/ui/banner";
 import MobileAppointmentBanner from "@/components/ui/Mbanner";
 import { useMediaQuery } from "react-responsive";
-
+import { useRouter } from "next/navigation";
 export default function App(){
   const isMobile = useMediaQuery({maxWidth:768});
   return isMobile ? <Mobile/>:<DeskTop/>
 }
 function Mobile(){
+  const router = useRouter()
   return  <div className="p-3">
       <header className="bg-white flex   top-5 w-[99%] max-md:w-[95%]    z-10  items-center justify-between gap-2  rounded-2xl px-4 py-2 shadow-blue-200 shadow backdrop-blur-md" >
         <div className="flex items-center gap-2">
@@ -48,7 +49,7 @@ function Mobile(){
             </p>
           </div>
           <div className="text-start mt-7">
-            <Button className="w-fit bg-indigo-600 px-7 py-6 text-md hover:bg-indigo-800 hover:cursor-pointer hover:">
+            <Button onClick={()=>{router.push('/auth/signin')}} className="w-fit bg-indigo-600 px-7 py-6 text-md hover:bg-indigo-800 hover:cursor-pointer hover:">
               Book Appointment
             </Button>
           </div>
@@ -57,40 +58,45 @@ function Mobile(){
       </div>
       <div className="grid grid-cols-2 relative">
         <div className="flex flex-col gap-4">
+          <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
+          >
         <LatestVisitedDoctor/>
+          </motion.div>
+          <motion.div
+          initial={{ opacity: 0, y: -50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
+          >
         <TotoalAppointment/>
+          </motion.div>
         </div>
         <div className="pl-3 pt-3 pb-3 bg-transparent relative ">
           <div className=" bg-transparent border-2 rounded-tl-2xl rounded-bl-2xl -z-1 h-[90%] absolute top-5 w-[100%]">
                <motion.div 
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{
-    type: "spring",
-    stiffness: 100,
-    damping: 20
-  }}
+            initial={{ opacity: 0, x: -50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
           className="absolute top-30  left-25">
             <Icon>
               <HeartPlusIcon />
             </Icon>
           </motion.div>
                <motion.div 
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{
-    type: "spring",
-    stiffness: 100,
-    damping: 20
-  }}
+              initial={{ opacity: 0, y: -50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
           className="absolute -bottom-2  left-25">
             <Icon>
               <StethoscopeIcon />
             </Icon>
           </motion.div>
-               
-
-
 
           </div>
         </div>
@@ -103,33 +109,84 @@ function Mobile(){
          
         <div className="flex gap-10 flex-col relative w-[100%]">
           <div className="absolute w-[100%] h-[100%] flex justify-center">
-            <div className="w-[2px] rounded-2xl animate-pulse bg-gradient-to-t to-gray-300 from-gray-100 -z-10"></div>
+            <motion.div
+            initial={{ opacity: 0, scale:0 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.8, ease: "easeOut", delay:0.7 }}
+  viewport={{ once: true, amount: 0.3 }}
+ 
+            className="w-[2px] rounded-2xl animate-pulse bg-gradient-to-t to-gray-300 from-gray-100 -z-10"></motion.div>
           </div>
+            <motion.div
+            initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
+  className="w-[100%]"
+            >
+
            <BookAppointmentButton
               title="Book Appointment"
               subtitle="shedule online in minutes"
               order={1}
             />
+            </motion.div>
+
+            <motion.div
+            initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut", delay:0.1 }}
+  viewport={{ once: true, amount: 0.3 }}
+  className="w-[100%]"
+            >
 
             <BookAppointmentButton
               title="Consult a Docktor "
               subtitle="Meet with specialists doctor in local "
               order={2}
             />
+            </motion.div>
+
+            <motion.div
+            initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut", delay:0.2 }}
+  viewport={{ once: true, amount: 0.3 }}
+  className="w-[100%]"
+            >
+              
            <BookAppointmentButton
               title="Diagnosis & Tests"
               subtitle="Get accurate reports "
               order={3}
             />
+            </motion.div>
+
+            <motion.div
+            initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut", delay:0.3 }}
+  viewport={{ once: true, amount: 0.3 }}
+  className="w-[100%]"
+            >
+
             <BookAppointmentButton
               title="Treatment & Follow-up"
               subtitle="Follw-up care and support "
               order={4}
             />
+            </motion.div>
         </div>
         </div>
       </div>
-      <div className="mt-20">
+      <motion.div 
+      initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut",  }}
+  viewport={{ once: true, amount: 0.3 }}
+
+      
+      className="mt-20">
             <div className="flex justify-center items-start p-2 flex-col w-full ">
               <button className="px-3 py-[0.3rem] rounded-2xl border-1 bg-gradient-to-br from-gray-50/80  to-violet-50  text-gray-900  font-medium">
                 Why Choose Us
@@ -147,11 +204,18 @@ function Mobile(){
               </p>
             </div>
            
-      </div>
-      <div className="mt-15 grid ">
+      </motion.div>
+
+      <motion.div
+      initial={{ opacity: 0, x: -50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut", }}
+  viewport={{ once: true, amount: 0.3 }}
+
+      className="mt-15 grid ">
         <MobileAppointmentBanner/>
         
-      </div>
+      </motion.div>
       <footer className="w-[100%] border-t-1 pt-3  mt-10 flex justify-between ">
         <div className="flex items-center gap-2">
           <Image src={logo} height={40} width={40} alt="logo"></Image>
@@ -168,6 +232,7 @@ function Mobile(){
       </div>
 }
 function DeskTop() {
+  const router = useRouter()
   return (
     <div className="p-4">
       <header>
@@ -293,7 +358,9 @@ function DeskTop() {
             </p>
           </div>
           <div className="text-center">
-            <Button className="w-fit bg-indigo-600 px-7 py-6 text-md hover:bg-indigo-800 hover:cursor-pointer hover:">
+            <Button onClick={()=>{
+              router.push('/auth/signin')
+            }} className="w-fit bg-indigo-600 px-7 py-6 text-md hover:bg-indigo-800 hover:cursor-pointer hover:">
               Book Appointment
             </Button>
           </div>

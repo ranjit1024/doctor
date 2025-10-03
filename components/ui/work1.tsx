@@ -10,6 +10,7 @@ const BookAppointmentButton =  ({title,subtitle,order}:{
     <button
      
       className={`
+        w-[100%]
         px-7 py-4
         pr-20 
         bg-white 

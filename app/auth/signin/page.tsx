@@ -1,5 +1,6 @@
 "use client"
 import {  Shield, Stethoscope, Calendar, Lock, Phone } from 'lucide-react';
+import { signIn } from 'next-auth/react';
 import Image from 'next/image';
 
 export default function DoctorAppointmentLogin() {
@@ -52,6 +53,9 @@ export default function DoctorAppointmentLogin() {
 
           {/* Login Form */}
            <button
+              onClick={async()=>{
+                signIn("google", {callbackUrl:"/medvisit/home"})
+              }}
               type="submit"
              
               className="w-full bg-gray-100 hover:bg-indigo-400 hover:cursor-pointer hover:text-white text-gray-800 disabled:bg-blue-300 bold py-4 rounded-lg hover:shadow-lg disabled:cursor-not-allowed transform hover:-translate-y-0.5"

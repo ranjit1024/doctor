@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Mona_Sans } from "next/font/google";
 import "./globals.css";
-
+import { Providers } from "@/lib/provider";
 const inter = Mona_Sans({
   subsets: ['latin'],
   display: 'swap',     // optional
@@ -22,7 +22,9 @@ export default function RootLayout({
       <body
         className={`${inter.className}`}
       >
+        <Providers>
         {children}
+        </Providers>
       </body>
     </html>
   );

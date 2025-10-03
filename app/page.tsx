@@ -14,6 +14,7 @@ import BookAppointmentButton from "@/components/ui/work1";
 import DoctorCard from "@/components/ui/chossUpCard";
 import AppointmentBanner from "@/components/ui/banner";
 import { useMediaQuery } from "react-responsive";
+import AppointmentJourney from "@/components/ui/appointment";
 export default function App(){
   const isMobile = useMediaQuery({maxWidth:768});
   return isMobile ? <Mobile/>:<DeskTop/>
@@ -86,26 +87,63 @@ function Mobile(){
               <StethoscopeIcon />
             </Icon>
           </motion.div>
-               <motion.div 
-            initial={{ x: -50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{
-    type: "spring",
-    stiffness: 100,
-    damping: 20
-  }}
-          className="absolute top-45 right-30">
-            <div className="scale-z-100">
-            <Icon>
-              <Ambulance />
-            </Icon>
-            </div>
-          </motion.div>
+               
 
 
 
           </div>
         </div>
+      </div>
+      <div className="mt-25">
+        <h2 className="text-3xl md:text-4xl font-semibold text-center  text-gray-900">
+          Working Process
+        </h2>
+        <div className="grid grid-cols-[5%_95%] w-[100%] h-[100%] mt-10 p-2">
+          <div className="p-1 h-[100%] relative ">
+            <div className="p-[0.9] w-fit bg-gray-300 h-[100%]"></div>
+          </div>
+        <div className="flex gap-10 flex-col w-[100%]">
+           <BookAppointmentButton
+              title="Book Appointment"
+              subtitle="shedule online in minutes"
+              order={1}
+            />
+
+            <BookAppointmentButton
+              title="Consult a Docktor "
+              subtitle="Meet with specialists doctor in local "
+              order={2}
+            />
+           <BookAppointmentButton
+              title="Diagnosis & Tests"
+              subtitle="Get accurate reports "
+              order={3}
+            />
+            <BookAppointmentButton
+              title="Treatment & Follow-up"
+              subtitle="Follw-up care and support "
+              order={4}
+            />
+        </div>
+        </div>
+      </div>
+      <div className="mt-20">
+            <div className="flex justify-center items-start p-2 flex-col w-full ">
+              <button className="px-3 py-[0.3rem] rounded-2xl border-1 bg-gradient-to-br from-gray-50/80  to-violet-50  text-gray-900  font-medium">
+                Why Choose Us
+              </button>
+              <div className="mt-6">
+                <h1 className="text-[3.2rem]   font-medium">Trusted by </h1>
+                <h1 className="text-[3.2rem] -mt-3 w-[100%] font-medium ">
+                  Thousands of Patients
+                </h1>
+              </div>
+              <p className="mt-4 font-normal text-gray-600">
+                We differentiate ourselves by providing not only exceptional
+                treatment but also a comforting, reassuring experience that
+                places your well-being at the center of everything we do
+              </p>
+            </div>
       </div>
       </div>
 }

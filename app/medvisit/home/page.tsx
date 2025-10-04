@@ -4,5 +4,5 @@
 export default function Home() {
   
 
-  return <div>kljkjhkj</div>;
+  return <div></div>;
 }

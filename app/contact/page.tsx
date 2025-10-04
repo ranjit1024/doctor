@@ -10,7 +10,6 @@ interface FormData {
   subject: string;
   message: string;
 }
-
 interface FormErrors {
   fullName?: string;
   email?: string;

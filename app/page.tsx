@@ -32,10 +32,10 @@ function Mobile(){
       </header>
       <div className="h-[75vh]  w-[100%] mt-20">
          <motion.div
-             initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
- 
+             initial={{ opacity: 0, x: -20 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  viewport={{ once: true, amount: 0.3 }}
           className="space-y-4  ">
           <div className="text-start font-medium text-[3.7rem] space-y-2">
            
@@ -60,7 +60,7 @@ function Mobile(){
       <div className="grid grid-cols-2 relative">
         <div className="flex flex-col gap-4">
           <motion.div 
-          initial={{ opacity: 0, x: -30 }}
+          initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}
@@ -68,7 +68,7 @@ function Mobile(){
         <LatestVisitedDoctor/>
           </motion.div>
           <motion.div
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: -20 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}
@@ -79,8 +79,8 @@ function Mobile(){
         <div className="pl-3 pt-3 pb-3 bg-transparent relative ">
           <div className=" bg-transparent border-2 rounded-tl-2xl rounded-bl-2xl -z-1 h-[90%] absolute top-5 w-[100%]">
                <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-  whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -20 }}
+  whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}
           className="absolute top-30  left-25 max-sm:left-30">
@@ -89,7 +89,7 @@ function Mobile(){
             </Icon>
           </motion.div>
                <motion.div 
-              initial={{ opacity: 0, y: -50 }}
+              initial={{ opacity: 0, y: -20 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}
@@ -119,7 +119,7 @@ function Mobile(){
             className="w-[2px] rounded-2xl animate-pulse bg-gradient-to-t to-gray-300 from-gray-100 -z-10"></motion.div>
           </div>
             <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}
@@ -134,7 +134,7 @@ function Mobile(){
             </motion.div>
 
             <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, ease: "easeOut", delay:0.1 }}
   viewport={{ once: true, amount: 0.3 }}
@@ -149,7 +149,7 @@ function Mobile(){
             </motion.div>
 
             <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, ease: "easeOut", delay:0.2 }}
   viewport={{ once: true, amount: 0.3 }}
@@ -164,7 +164,7 @@ function Mobile(){
             </motion.div>
 
             <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, ease: "easeOut", delay:0.3 }}
   viewport={{ once: true, amount: 0.3 }}
@@ -181,7 +181,7 @@ function Mobile(){
         </div>
       </div>
       <motion.div 
-      initial={{ opacity: 0, x: 50 }}
+      initial={{ opacity: 0, x: 20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, ease: "easeOut",  }}
   viewport={{ once: true, amount: 0.3 }}
@@ -208,7 +208,7 @@ function Mobile(){
       </motion.div>
 
       <motion.div
-      initial={{ opacity: 0, x: -50 }}
+      initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, ease: "easeOut", }}
   viewport={{ once: true, amount: 0.3 }}
@@ -417,7 +417,7 @@ function DeskTop() {
         </h2>
         <div className="w-[100%] grid grid-cols-[25%_50%_25%] ">
           <motion.div 
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}
@@ -587,7 +587,7 @@ function DeskTop() {
           </motion.div>
 
           <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}
@@ -607,7 +607,7 @@ function DeskTop() {
         <div className="mt-25">
           <div className="w-[100%] grid grid-cols-2 gap-3">
             <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}
@@ -624,7 +624,7 @@ function DeskTop() {
               />
             </motion.div>
             <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}
@@ -650,7 +650,7 @@ function DeskTop() {
           </div>
           <div className="mt-10 flex w-[100%] gap-5">
             <motion.div
-            initial={{ opacity: 0, y: -50 }}
+            initial={{ opacity: 0, y: -20 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}
@@ -658,7 +658,7 @@ function DeskTop() {
             <DoctorCard />
             </motion.div>
             <motion.div
-            initial={{ opacity: 0, y: -50 }}
+            initial={{ opacity: 0, y: -20 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" , delay:0.1}}
   viewport={{ once: true, amount: 0.3 }}
@@ -666,7 +666,7 @@ function DeskTop() {
             <DoctorCard />
             </motion.div>
             <motion.div
-            initial={{ opacity: 0, y: -50 }}
+            initial={{ opacity: 0, y: -20 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" , delay:0.2 }}
   viewport={{ once: true, amount: 0.3 }}
@@ -674,7 +674,7 @@ function DeskTop() {
             <DoctorCard />
             </motion.div>
             <motion.div
-            initial={{ opacity: 0, y: -50 }}
+            initial={{ opacity: 0, y: -20 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: "easeOut", delay:0.4 }}
   viewport={{ once: true, amount: 0.3 }}
@@ -684,7 +684,7 @@ function DeskTop() {
             
           </div>
           <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}

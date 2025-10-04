@@ -9,7 +9,6 @@ interface AppointmentCardProps {
   consultationType: 'video' | 'in-person';
   note: string;
   status: 'upcoming' | 'completed' | 'cancelled';
-  avatarUrl?: string;
 }
 
 export const UpcomingDoctorAppointment: React.FC<AppointmentCardProps> = ({
@@ -20,7 +19,7 @@ export const UpcomingDoctorAppointment: React.FC<AppointmentCardProps> = ({
   consultationType,
   note,
   status,
-  avatarUrl
+
 }) => {
   const statusStyles = {
     upcoming: 'bg-amber-50 text-amber-700 border-amber-200',
@@ -40,17 +39,11 @@ export const UpcomingDoctorAppointment: React.FC<AppointmentCardProps> = ({
       {/* Doctor Info */}
       <div className="flex items-start gap-4 mb-6">
         <div className="flex-shrink-0">
-          {avatarUrl ? (
-            <img 
-              src={avatarUrl} 
-              alt={doctorName}
-              className="w-14 h-14 rounded-full object-cover ring-2 ring-blue-100"
-            />
-          ) : (
+           
             <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
               <User className="w-7 h-7 text-white" strokeWidth={2} />
             </div>
-          )}
+          
         </div>
         
         <div className="flex-1 min-w-0">

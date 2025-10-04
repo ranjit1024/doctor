@@ -16,7 +16,7 @@ import AppointmentBanner from "@/components/ui/banner";
 import MobileAppointmentBanner from "@/components/ui/Mbanner";
 import { useMediaQuery } from "react-responsive";
 import { useRouter } from "next/navigation";
-import OurMission from "@/components/ui/mission";
+
 export default function App(){
   const isMobile = useMediaQuery({maxWidth:768});
   return isMobile ? <Mobile/>:<DeskTop/>
@@ -691,9 +691,7 @@ function DeskTop() {
           className="w-[100%] mt-15">
             <AppointmentBanner />
           </motion.div>
-          <div>
-            <OurMission/>
-          </div>
+         
         </div>
       </div>
 

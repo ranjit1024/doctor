@@ -204,21 +204,21 @@ export default function Home({ children }: { children: React.ReactNode }) {
           </motion.div>
         </div>
         <div className="mt-15">{children}</div>
+        {/* //mobile div */}
         <div className="z-10 md:hidden bg-gray-100 fixed bottom-0 w-[100%]  flex justify-between">
-            
-      {/* Avatar with improved styling */}
-  
-
-      {/* Navigation items with better spacing and hover effects */}
       <div className="flex w-[100%] justify-between items-center">
-        <button className="flex flex-col items-center gap-1.5 py-4 px-4 group w-full">
+        <button onClick={()=>{
+          router.push('/medvisit/appointment')
+        }} className="flex flex-col items-center gap-1.5 py-4 px-4 group w-full">
           <HomeIcon className="w-5 h-5 text-gray-700 group-hover:text-gray-900 transition-colors" />
           <span className="text-xs font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
             Home
           </span>
         </button>
 
-        <button className="flex flex-col items-center gap-1.5 py-4 px-4 group border-b-2 border-gray-900 w-full">
+        <button onClick={()=>{
+          router.push('/medvisit/upcomming')
+        }} className="flex flex-col items-center gap-1.5 py-4 px-4 group border-b-2 border-gray-900 w-full">
           <Calendar1Icon className="w-5 h-5 text-gray-900" />
           <span className="text-xs font-medium text-gray-900">
             Appointment
@@ -253,7 +253,7 @@ function NavItem({
       ].join(" ")}
     >
       <span className={active ? "text-white" : "text-zinc-500"}>{icon}</span>
-      <span className="text-[0.9rem]">{label}</span>
+      <span className="text-[0.9rem] max-md:text-red-50">{label}</span>
     </motion.button>
   );
 }

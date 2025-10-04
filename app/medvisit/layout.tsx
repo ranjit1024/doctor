@@ -11,6 +11,7 @@ import {
   Calendar1Icon,
   CalendarClockIcon,
   CalendarCheck2,
+  HomeIcon,
   
 } from "lucide-react";
 export default function Home({ children }: { children: React.ReactNode }) {
@@ -47,8 +48,8 @@ export default function Home({ children }: { children: React.ReactNode }) {
           Book Appointment
         </Button>
       </div>
-      <div className="grid grid-cols-[20%_80%] relative">
-        <div className="">
+      <div className="grid grid-cols-[20%_80%] max-md:h-[100%] max-md:grid-cols-1 max-md:grid-rows-[95%_5%]  relative">
+        <div className="max-md:hidden">
           <motion.div
             initial={{
               x: -20,
@@ -203,6 +204,30 @@ export default function Home({ children }: { children: React.ReactNode }) {
           </motion.div>
         </div>
         <div className="mt-15">{children}</div>
+        <div className="z-10 md:hidden bg-gray-100 fixed bottom-0 w-[100%]  flex justify-between">
+            
+      {/* Avatar with improved styling */}
+  
+
+      {/* Navigation items with better spacing and hover effects */}
+      <div className="flex w-[100%] justify-between items-center">
+        <button className="flex flex-col items-center gap-1.5 py-4 px-4 group w-full">
+          <HomeIcon className="w-5 h-5 text-gray-700 group-hover:text-gray-900 transition-colors" />
+          <span className="text-xs font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
+            Home
+          </span>
+        </button>
+
+        <button className="flex flex-col items-center gap-1.5 py-4 px-4 group border-b-2 border-gray-900 w-full">
+          <Calendar1Icon className="w-5 h-5 text-gray-900" />
+          <span className="text-xs font-medium text-gray-900">
+            Appointment
+          </span>
+        </button>
+      </div>
+   
+          
+        </div>
       </div>
     </div>
   );

@@ -4,12 +4,12 @@ import {UpcomingDoctorAppointment} from "@/components/ui/booked";
 
 
 function App() {
-  return <div className="m-2 ">
+  return <div className=" max-md:mb-20  max-md:p-2 w-[100%] p-2  ">
     <UpcomingDoctorAppointment
         doctorName="Dr. Michael Chen"
         specialty="General Physician"
         date="Mon, Oct 6"
-        time="2:30 PM"
+  
         consultationType="video"
         note="Annual health checkup consultation"
         status="completed"
@@ -18,7 +18,7 @@ function App() {
         doctorName="Dr. Michael Chen"
         specialty="General Physician"
         date="Mon, Oct 6"
-        time="2:30 PM"
+
         consultationType="video"
         note="Annual health checkup consultation"
         status="completed"
@@ -27,7 +27,7 @@ function App() {
         doctorName="Dr. Michael Chen"
         specialty="General Physician"
         date="Mon, Oct 6"
-        time="2:30 PM"
+     
         consultationType="video"
         note="Annual health checkup consultation"
         status="completed"

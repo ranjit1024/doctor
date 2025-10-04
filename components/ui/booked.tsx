@@ -1,11 +1,10 @@
 import React from 'react';
-import { Calendar, Clock, Video, User } from 'lucide-react';
+import { Calendar, User } from 'lucide-react';
 
 interface AppointmentCardProps {
   doctorName: string;
   specialty: string;
   date: string;
-  time: string;
   consultationType: 'video' | 'in-person';
   note: string;
   status: 'upcoming' | 'completed' | 'cancelled';
@@ -15,8 +14,6 @@ export const UpcomingDoctorAppointment: React.FC<AppointmentCardProps> = ({
   doctorName,
   specialty,
   date,
-  time,
-  consultationType,
   note,
   status,
 
@@ -28,10 +25,10 @@ export const UpcomingDoctorAppointment: React.FC<AppointmentCardProps> = ({
   };
 
   return (
-    <div className={`relative bg-white  rounded-2xl border border-gray-200 p-6 shadow-xs hover:shadow-md transition-shadow duration-300 mb-1`} >
+    <div className={`relative bg-white mb-2 rounded-2xl border border-gray-200 p-6 shadow-xs hover:shadow-md `} >
       {/* Status Badge */}
-      <div className="absolute top-6 right-6">
-        <span className={`px-3 py-1.5 rounded-full text-xs font-semibold border ${statusStyles[status]}`}>
+      <div className="absolute top-6 right-6 max-sm:right-2">
+        <span className={`px-3 py-1.5 max-sm:px-1.5 max-sm:py-0.5 rounded-full text-xs font-semibold border ${statusStyles[status]}`}>
           {status.charAt(0).toUpperCase() + status.slice(1)}
         </span>
       </div>
@@ -68,17 +65,9 @@ export const UpcomingDoctorAppointment: React.FC<AppointmentCardProps> = ({
           </span>
         </div>
 
-        <div className="flex items-center gap-3 text-gray-700">
-          <Clock className="w-5 h-5 text-blue-600" strokeWidth={2} />
-          <span className="text-sm font-medium">{time}</span>
-        </div>
+        
 
-        <div className="flex items-center gap-3 text-gray-700">
-          <Video className="w-5 h-5 text-blue-600" strokeWidth={2} />
-          <span className="text-sm font-medium">
-            {consultationType === 'video' ? 'Video Consultation' : 'In-Person Consultation'}
-          </span>
-        </div>
+     
       </div>
 
       {/* Note Section */}

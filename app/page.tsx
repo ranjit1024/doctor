@@ -83,7 +83,7 @@ function Mobile(){
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}
-          className="absolute top-30  left-25">
+          className="absolute top-30  left-25 max-sm:left-30">
             <Icon>
               <HeartPlusIcon />
             </Icon>
@@ -93,7 +93,7 @@ function Mobile(){
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}
-          className="absolute -bottom-2  left-25">
+          className="absolute -bottom-2 left-25 max-sm:left-30">
             <Icon>
               <StethoscopeIcon />
             </Icon>

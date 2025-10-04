@@ -54,7 +54,7 @@ export default function DoctorAppointmentLogin() {
           {/* Login Form */}
            <button
               onClick={async()=>{
-                signIn("google", {callbackUrl:"/medvisit/home"})
+                signIn("google", {callbackUrl:"/medvisit/appointment"})
               }}
               type="submit"
              

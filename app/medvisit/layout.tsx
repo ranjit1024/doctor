@@ -38,14 +38,14 @@ export default function Home({ children }: { children: React.ReactNode }) {
       <div className="flex items-center gap-1 border-b z-10 fixed top-0  w-[100%] bg-white  justify-between p-3">
         <div className="flex items-center gap-1">
           <Image src={logo} height={20} width={30} alt="logo" />
-          <p className="text-[1rem] font-[500] text-gray-900">MedVisit</p>
+          <p className="text-[1rem] max-md:font-[550] font-[500] text-zinc-800">MedVisit</p>
         </div>
         <Button
           onClick={() => {
             router.push("/medvisit/appointment");
           }}
           variant={"outline"}
-          className="shadow-none hover:cursor-pointer border-1 border-gray-100"
+          className="shadow-none hover:cursor-pointer border-1 max-md:text-sm max-md:font-semibold border-gray-100"
         >
           Book Appointment
         </Button>

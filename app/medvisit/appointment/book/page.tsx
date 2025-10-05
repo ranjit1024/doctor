@@ -4,7 +4,7 @@ import { DatePickerResponsive } from "@/components/ui/datePicker"
 import TimeSelect from "@/components/ui/time"
 import { Clock,MapPin,Calendar } from "lucide-react"
 export default function Home(){
-    return <div className=" p-4 h-[100vh]">
+    return <div className=" p-4 h-[110vh]">
         <div>
               {/* Doctor Info - Minimal */}
       <div className="flex items-center gap-4  ">
@@ -35,10 +35,10 @@ export default function Home(){
         </div>
       </div>
         </div>
-        <div className=" pt-2 ">
+        <div className=" pt-2  ">
         <DatePickerResponsive/>
         </div>
-        <div className="pt-2">
+        <div className="pt-2 max-sm:pt-4">
           <TimeSelect/>
         </div>
         <div className="flex justify-center items-center w-[100%]">

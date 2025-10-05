@@ -115,7 +115,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
               >
                 <NavItem
                   icon={<CalendarClockIcon size={16} />}
-                  label="Upcomming Appoitment "
+                  label="Upcomming Appointment "
                   active={pathname.includes('upcomming')?true:false}
                 />
               </motion.div>
@@ -139,7 +139,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
               >
                 <NavItem
                   icon={<CalendarCheck2 size={16} />}
-                  label="Completed Appoitnent"
+                  label="Completed Appointment"
                   active={pathname.includes('completed')?true:false}
                 />
               </motion.div>

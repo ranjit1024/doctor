@@ -33,14 +33,14 @@ export function DatePickerResponsive() {
     return (
       <Popover open={open} onOpenChange={setOpen}>
         
-           <h3 className="text-gray-600 dark:text-white text-base font-medium mb-3 text-start mt-4">
+           <h3 className="text-gray-900 dark:text-white text-base font-medium mb-3 text-start mt-4">
         Pick an Appoitment Date
       </h3>
         <PopoverTrigger asChild>
           <Button
             variant={"outline"}
             className={cn(
-              "w-full md:w-[280px] justify-start ml-2 text-left font-normal",
+              "w-full md:w-[500px] h-10 justify-start  text-left font-normal",
               !date && "text-muted-foreground"
             )}
           >
@@ -48,7 +48,7 @@ export function DatePickerResponsive() {
             {date ? format(date, "PPP") : <span>Pick a date</span>}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[25vw] fixed top-0 p-0  " align="start">
+        <PopoverContent className="w-[30vw] top-0 p-0 absolute   " align="start">
           <Calendar
             mode="single"
             selected={date}

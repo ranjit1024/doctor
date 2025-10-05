@@ -1,9 +1,29 @@
 "use client"
 import {  Shield, Stethoscope, Calendar, Lock } from 'lucide-react';
 import { signIn } from 'next-auth/react';
+import { useState } from 'react';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 
 export default function DoctorAppointmentLogin() {
+  const [phone, setPhone] = useState('');
+  const [error, setError] = useState('');
+
+  const validatePhone = (value: string) => {
+    const phoneRegex = /^(\+91[\-\s]?)?[0]?(91)?[6-9]\d{9}$/
+    return phoneRegex.test(value);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPhone(value);
+    
+    if (value && !validatePhone(value)) {
+      setError('Please match format: +91 1234568764');
+    } else {
+      setError('');
+    }
+  };
   return (
     <div className="min-h-screen flex bg-gray-50">
       {/* Medical Illustration Side */}
@@ -44,24 +64,26 @@ export default function DoctorAppointmentLogin() {
       
 
           {/* Login Form */}
-           <button
-              onClick={async()=>{
-                signIn("google", {callbackUrl:"/medvisit/appointment"})
-              }}
-              type="submit"
-             
-              className="w-full bg-gray-100 hover:bg-indigo-400 hover:cursor-pointer hover:text-white text-gray-800 disabled:bg-blue-300 bold py-4 rounded-lg hover:shadow-lg disabled:cursor-not-allowed transform hover:-translate-y-0.5"
-            >
-              
-               
-            
-                <span className="flex items-center justify-center gap-2 font-medium">
-                  <Image width="30" height="30" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
-                  Login With google
-                </span>
-              
-            </button>
-
+          <div className='w-[100%] flex justify-center items-center'>
+           <div className="w-95 flex flex-col justify-">
+      <label className="block text-sm font-medium text-gray-700 mb-1">
+        Enter Mobile Number
+      </label>
+      <input
+        type="tel"
+        value={phone}
+        onChange={handleChange}
+        maxLength={16}
+        placeholder="e.g., +1 123-456-7890"
+        className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 transition-colors
+          ${error ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
+      />
+      {error && (
+        <p className="mt-1 text-xs text-red-500">{error}</p>
+      )}
+    <Button className=' mt-2 bg-indigo-600 hover:bg-indigo-500'>Submit</Button>
+    </div>
+    </div>
           {/* New Patient Registration */}
           <div className="text-center mt-6">
             <p className="text-sm text-gray-600 mb-3">

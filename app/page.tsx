@@ -30,7 +30,21 @@ function Mobile(){
             <p className="text-[1.1rem] pt-1 font-[500] text-gray-900">MedVisit</p>
           </div>
       </header>
-      <div className="h-[75vh]  w-[100%] mt-20">
+      <div className="h-[75vh] max-md:relative max-md:h-[90vh] flex justify-center items-center  w-[100%] mt-20 max-md:mt-0">
+           <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{
+                duration: 0.4,
+                ease: "easeInOut",
+              }}
+              className="absolute top-[15%]  right-4"
+            >
+              <Icon>
+                <Ambulance />
+              </Icon>
+            </motion.div>
          <motion.div
              initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}

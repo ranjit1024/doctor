@@ -7,6 +7,7 @@ import Image from "next/image";
 import logo from "../../public/logo.png";
 import Loader from "@/components/ui/loader";
 import { Button } from "@/components/ui/button";
+import { usePathname } from "next/navigation";
 import {
   Calendar1Icon,
   CalendarClockIcon,
@@ -14,10 +15,11 @@ import {
   HomeIcon,
   
 } from "lucide-react";
+
 export default function Home({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const { data: session, status } = useSession();
-
+  const pathname = usePathname();
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/auth/signin");
@@ -89,6 +91,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 <NavItem
                   icon={<Calendar1Icon size={16} />}
                   label="Book Appoitment "
+                  active={pathname.includes('appointment')?true:false}
                 />
               </motion.div>
 
@@ -113,6 +116,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 <NavItem
                   icon={<CalendarClockIcon size={16} />}
                   label="Upcomming Appoitment "
+                  active={pathname.includes('upcomming')?true:false}
                 />
               </motion.div>
               <motion.div
@@ -136,6 +140,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 <NavItem
                   icon={<CalendarCheck2 size={16} />}
                   label="Completed Appoitnent"
+                  active={pathname.includes('completed')?true:false}
                 />
               </motion.div>
 
@@ -209,8 +214,9 @@ export default function Home({ children }: { children: React.ReactNode }) {
       <div className="flex w-[100%] justify-between items-center">
         <button onClick={()=>{
           router.push('/medvisit/appointment')
-        }} className="flex flex-col items-center gap-1.5 py-4 px-4 group w-full">
-          <HomeIcon className="w-5 h-5 text-gray-700 group-hover:text-gray-900 transition-colors" />
+        }} className={`${pathname.includes('appointment')? 'flex border-b-2 text-gray-900 border-gray-900 flex-col items-center gap-1.5 py-4 px-4 group w-full':'flex flex-col items-center gap-1.5 py-4 px-4 group w-full'}`}>
+
+          <HomeIcon className="w-5 h-5 text-gray-900 group-hover:text-gray-900 transition-colors"/>
           <span className="text-xs font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
             Home
           </span>
@@ -218,7 +224,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
 
         <button onClick={()=>{
           router.push('/medvisit/upcomming')
-        }} className="flex flex-col items-center gap-1.5 py-4 px-4 group border-b-2 border-gray-900 w-full">
+        }} className={`${pathname.includes('completed') || pathname.includes('upcomming') ? 'flex flex-col items-center gap-1.5 py-4 px-4 group 0 w-full border-b-2 border-gray-900':'flex flex-col items-center gap-1.5 py-4 px-4 group 0 w-full'}`}>
           <Calendar1Icon className="w-5 h-5 text-gray-900" />
           <span className="text-xs font-medium text-gray-900">
             Appointment
@@ -248,7 +254,7 @@ function NavItem({
         "w-full rounded-xl px-3 py-2 text-left text-sm font-medium",
         "flex items-center gap-2 transition-discrete duration-300   ease-out ",
         active
-          ? "bg-indigo-900 text-white shadow-sm"
+          ? "bg-zinc-950 text-white shadow-sm"
           : "text-zinc-700 hover:bg-zinc-100 hover:cursor-pointer text-2xl hover:text-zinc-950",
       ].join(" ")}
     >

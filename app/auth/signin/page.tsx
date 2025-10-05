@@ -1,5 +1,5 @@
 "use client"
-import {  Shield, Stethoscope, Calendar, Lock, Phone } from 'lucide-react';
+import {  Shield, Stethoscope, Calendar, Lock } from 'lucide-react';
 import { signIn } from 'next-auth/react';
 import Image from 'next/image';
 

@@ -1,6 +1,10 @@
+"use client"
 import React from 'react';
 import { Clock ,MapPin,Calendar } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+ 
  export const DoctorAppointmentCard = () => {
+  const router = useRouter()
   return (
      <div className="w-full mx-auto mb-2 bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
       {/* Doctor Info - Minimal */}
@@ -40,7 +44,9 @@ import { Clock ,MapPin,Calendar } from 'lucide-react';
         </div>
 
         {/* Minimal Button */}
-        <button className="w-full bg-gray-900 hover:bg-gray-800 text-white font-medium py-4 rounded-2xl transition-colors duration-200">
+        <button onClick={()=>{
+          router.push("/medvisit/appointment/book")
+        }} className="w-full bg-gray-900 hover:bg-gray-800 text-white font-medium py-4 rounded-2xl transition-colors duration-200">
           Book Appointment
         </button>
       </div>

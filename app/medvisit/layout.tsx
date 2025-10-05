@@ -227,7 +227,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
         }} className={`${pathname.includes('completed') || pathname.includes('upcomming') ? 'flex flex-col items-center gap-1.5 py-4 px-4 group 0 w-full border-b-2 border-gray-900':'flex flex-col items-center gap-1.5 py-4 px-4 group 0 w-full'}`}>
           <Calendar1Icon className="w-5 h-5 text-gray-900" />
           <span className="text-xs font-medium text-gray-900">
-            Appointment
+            Your Appointments
           </span>
         </button>
       </div>

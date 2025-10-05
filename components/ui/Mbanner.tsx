@@ -7,7 +7,7 @@ export default function MobileAppointmentBanner() {
   return (
     <div className="w-full 0  flex justify-center p-1">
       <div
-      className="bg-green-50 grid grid-cols-[100%] rounded-xl w-[100%] p-10   text-center">
+      className="bg-gray-100 grid grid-cols-[100%] rounded-xl w-[100%]  p-5   text-center">
            
         <div>
         <h1 className="text-3xl w-[100%] font-medium text-start text-gray-900 ">

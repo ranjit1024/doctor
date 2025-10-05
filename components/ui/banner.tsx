@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 export default function AppointmentBanner() {
   const router = useRouter()
   return (
-    <div className="w-full 0 py-12 flex justify-center">
-      <div className="bg-green-50 rounded-xl  py-14 w-full  text-center">
+    <div className="w-full 0 py-5 flex justify-center">
+      <div className="bg-gray-100 rounded-xl  py-14 w-full  text-center">
         <h1 className="text-6xl font-medium text-gray-900 mb-5">
           Book Your Appointment Today
         </h1>

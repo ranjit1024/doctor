@@ -41,15 +41,7 @@ export default function DoctorAppointmentLogin() {
           </div>
 
           {/* Patient Quick Access Options */}
-          <div className="bg-blue-50 rounded-lg p-4 mb-6">
-            <div className="flex items-center gap-2 text-sm text-blue-800 mb-2">
-              <Phone className="w-4 h-4" />
-              <span className="font-medium">Need immediate care?</span>
-            </div>
-            <div className="text-xs text-blue-700">
-              Emergency: Call 911 • Urgent Care: (555) 123-4567
-            </div>
-          </div>
+      
 
           {/* Login Form */}
            <button

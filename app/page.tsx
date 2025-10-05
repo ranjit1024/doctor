@@ -30,30 +30,17 @@ function Mobile(){
             <p className="text-[1.1rem] pt-1 font-[500] text-gray-900">MedVisit</p>
           </div>
       </header>
-      <div className="h-[75vh] max-md:relative max-md:h-[90vh] flex justify-center items-center  w-[100%] mt-20 max-md:mt-0">
-           <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{
-                duration: 0.4,
-                ease: "easeInOut",
-              }}
-              className="absolute top-[15%]  right-4"
-            >
-              <Icon>
-                <Ambulance />
-              </Icon>
-            </motion.div>
+      <div className="h-[85vh] max-md:relative flex justify-center items-center  w-[100%] mt-20 max-md:mt-0">
+         
          <motion.div
              initial={{ opacity: 0, x: -20 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   viewport={{ once: true, amount: 0.3 }}
           className="space-y-4  ">
-          <div className="text-start font-medium text-[3.7rem] space-y-2">
+          <div className="text-start font-medium text-[3.7rem] max-md:text-[3.5rem] text-zinc-900 space-y-2">
            
-            <h1 className=" leading-18 "> Skip the</h1>
+            <h1 className=" leading-18  "> Skip the</h1>
             <p className="leading-16">Calls Book </p>
             <p className="leading-16">Care online </p>
           </div>
@@ -92,26 +79,7 @@ function Mobile(){
         </div>
         <div className="pl-3 pt-3 pb-3 bg-transparent relative ">
           <div className=" bg-transparent border-2 rounded-tl-2xl rounded-bl-2xl -z-1 h-[90%] absolute top-5 w-[100%]">
-               <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
-          className="absolute top-30  left-25 max-sm:left-30">
-            <Icon>
-              <HeartPlusIcon />
-            </Icon>
-          </motion.div>
-               <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
-          className="absolute -bottom-2 left-25 max-sm:left-30">
-            <Icon>
-              <StethoscopeIcon />
-            </Icon>
-          </motion.div>
+  
 
           </div>
         </div>

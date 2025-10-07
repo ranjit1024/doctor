@@ -29,12 +29,15 @@ export async function isVerified() {
             email:session?.user?.email || ""
         }
     })
+    
     if(userExist){
         const isVerified = await prisma.verify.findFirst({
             where:{
+                email:userExist.email,
                 verify:true
             }
         })
+        console.log(isVerified)
         if(isVerified){
             return true;
         }

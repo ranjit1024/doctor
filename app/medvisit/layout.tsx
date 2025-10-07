@@ -13,8 +13,12 @@ import {
   CalendarClockIcon,
   CalendarCheck2,
   HomeIcon,
+  User,
+  User2,
+  UserCheck2Icon,
   
 } from "lucide-react";
+import ProfileIcon from "@/components/ui/profile";
 
 export default function Home({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -40,15 +44,10 @@ export default function Home({ children }: { children: React.ReactNode }) {
           <Image src={logo} height={20} width={30} alt="logo" />
           <p className="text-[1rem] max-md:font-[500] font-[500] text-zinc-800">MedVisit</p>
         </div>
-        <Button
-          onClick={() => {
-            router.push("/medvisit/appointment");
-          }}
-          variant={"outline"}
-          className="shadow-none hover:cursor-pointer border-1 max-md:text-sm max-md:font-medium border-gray-100"
+        <button className="rounded-full w-9 h-9 flex justify-center items-center border bg-transparent text-black"
         >
-          Book Appointment
-        </Button>
+          <ProfileIcon/>
+        </button>
       </div>
       <div className="grid grid-cols-[20%_80%] max-md:h-[100%] max-md:grid-cols-1 max-md:grid-rows-[95%_5%]  relative">
         <div className="max-md:hidden">
@@ -214,7 +213,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
       <div className="flex w-[100%] justify-between items-center">
         <button onClick={()=>{
           router.push('/medvisit/appointment')
-        }} className={`${pathname.includes('appointment')? 'flex border-b-2 text-gray-900 border-gray-900 flex-col items-center gap-1.5 py-4 px-4 group w-full':'flex flex-col items-center gap-1.5 py-4 px-4 group w-full'}`}>
+        }} className={`${pathname.includes('appointment')? 'flex border-b-2 text-gray-900 border-gray-900 flex-col items-center gap-1.5 py-4 px-4npx pri group w-full':'flex flex-col items-center gap-1.5 py-4 px-4 group w-full'}`}>
 
           <HomeIcon className="w-5 h-5 text-gray-900 group-hover:text-gray-900 transition-colors"/>
           <span className="text-xs font-medium text-gray-700 group-hover:text-gray-900 transition-colors">

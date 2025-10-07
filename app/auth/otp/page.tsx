@@ -1,5 +1,4 @@
 "use client"
-import { Verify } from '@/lib/actions/verify';
 import React, { useState, useRef, KeyboardEvent, ClipboardEvent, ChangeEvent, FormEvent } from 'react';
 
 export default function Home() {
@@ -89,6 +88,7 @@ export default function Home() {
   return (
     <div className="min-h-[100vh] bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center ">
       <div className="w-full h-[100vh]">
+     
         <div className="bg-white  h-full shadow-2xl overflow-hidden">
           <div className="grid lg:grid-cols-2 gap-0 h-full">
             {/* Left Side - Branding/Info */}
@@ -161,7 +161,7 @@ export default function Home() {
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
-                        className="w-8 h-8 text-indigo-600"
+                        className="w-10 h-10 text-indigo-600"
                       >
                         <path
                           fillRule="evenodd"
@@ -222,7 +222,7 @@ export default function Home() {
                         </p>
                       )}
                       <p className="mt-3 text-xs text-gray-500">
-                        Enter a valid Indian mobile number (starting with 6, 7, 8, or 9)
+                        {`Enter a valid Indian mobile number (starting with 6, 7, 8, or 9)`}
                       </p>
                     </div>
 
@@ -254,7 +254,7 @@ export default function Home() {
                               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                             />
                           </svg>
-                          Sending OTP...
+                          {"Sending OTP..."}
                         </span>
                       ) : (
                         'Send Verification Code'
@@ -269,12 +269,12 @@ export default function Home() {
               ) : (
                 <>
                   <div className="mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-2xl mb-4 lg:hidden">
+                    <div className="inline-flex items-center justify-center w-14 h-14 bg-green-100 rounded-2xl mb-4 lg:hidden">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
-                        className="w-8 h-8 text-green-600"
+                        className="w-10 h-10 text-green-600"
                       >
                         <path
                           fillRule="evenodd"
@@ -287,7 +287,7 @@ export default function Home() {
                       Enter Code
                     </h1>
                     <p className="text-sm text-gray-600">
-                      We've sent a 6-digit code to
+                      {"We've sent a 6-digit code to"}
                     </p>
                     <p className="text-base font-semibold text-gray-900 mt-1">
                       +91 {phone}
@@ -351,7 +351,7 @@ export default function Home() {
                               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                             />
                           </svg>
-                          Verifying...
+                          {"Verifying..."}
                         </span>
                       ) : (
                         'Verify & Continue'

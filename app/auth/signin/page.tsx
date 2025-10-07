@@ -1,39 +1,10 @@
 "use client"
 import {  Shield, Stethoscope, Calendar, Lock } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Verify } from '@/lib/actions/verify';
-import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
-
-
-
+import Logo from '@/components/ui/logo';
+import Image from 'next/image';
 export default function DoctorAppointmentLogin() {
-  const router = useRouter()
-  const [phone, setPhone] = useState('+91 ');
-  const [error, setError] = useState('');
-  const [validNumber, setValidNumber] = useState<boolean>(false)
-  // const validatePhone = (value: string) => {
-  //   const phoneRegex = /^(\+91[\-\s]?)?[0]?(91)?[6-9]\d{9}$/
-  //   return phoneRegex.test(value);
-  // };
 
-  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const value = e.target.value;
-  //   setPhone(value);
-    
-  //   if (value && !validatePhone(value)) {
-  //     setError('Please match format: +91 1234568764');
-  //   } else {
-  //     setError('');
-  //   }
-  // };
-  // useEffect(()=>{
-  //   if(validNumber){
-
-  //     router.push("/auth/otp")
-  //   }
-  // },[validNumber])
   return (
     <div className="min-h-screen flex bg-gray-50">
       {/* Medical Illustration Side */}
@@ -64,7 +35,8 @@ export default function DoctorAppointmentLogin() {
           {/* Medical Facility Branding */}
           <div className="text-center mb-8">
             <div className="bg-blue-100 rounded-full p-3 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-              <Calendar className="w-8 h-8 text-blue-600" />
+             
+              <Logo width={40} height={40}/>
             </div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">MedVisit</h1>
             <p className="text-gray-600">Secure access to your medical appointments</p>
@@ -75,39 +47,20 @@ export default function DoctorAppointmentLogin() {
 
           {/* Login Form */}
           <div className='w-[100%] flex justify-center items-center'>
-           <div className="w-95 flex flex-col justify-">
-      <label className="block text-sm font-medium text-gray-700 mb-1 ml-2">
-        Login with google
-      </label>
-      {/* <input
-        type="tel"
-        value={phone}
-        onChange={handleChange}
-        maxLength={16}
-        placeholder="e.g., +91 1234567890"
-        className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 transition-colors
-          ${error ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
-      />
-      {error && (
-        <p className="mt-1 text-xs text-red-500">{error}</p>
-      )} */}
+           <div className="w-95 flex flex-col ">
+
       
      <button onClick={()=>{
-      signIn('google', {callbackUrl:'/auth/otp'})
+      signIn('google', {callbackUrl:'/medvisit/appointment'})
      }} className="px-6 gap-2 mt-3  flex justify-center py-2.5 bg-transparent text-gray-900 text-md font-semibold rounded-lg border border-gray-900 hover:bg-gray-900  hover:text-white transition-colors hover:cursor-pointer">
-  <img width="25" height="25" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
+  <Image width="25" height="25" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
   Login With Google
 </button>
-    {/* <Button onClick={async() =>{
-      const res = await Verify({number:phone})
-      if(res === "valid number"){
-        setValidNumber(true)
-      }
-    }} className=' mt-4 bg-indigo-600 hover:bg-indigo-500 hover:cursor-pointer'>Submit</Button> */}
+    
     </div>
     </div>
           {/* New Patient Registration */}
-          <div className="text-center mt-6">
+          <div className="text-center mt-10">
             <p className="text-sm text-gray-600 mb-3">
               New patient or need to create an account?
             </p>

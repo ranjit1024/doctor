@@ -1,0 +1,42 @@
+"use server"
+import prisma from "./prisma"
+import { authOption } from "./auth";
+import { getServerSession } from "next-auth";
+export async function verify({number}:{number:string}) {
+    const session = await getServerSession(authOption) 
+    const userExist =  await prisma.user.findFirst({
+        where:{
+            email:session?.user?.email || ""
+        }
+    })
+    if(userExist){
+        prisma.verify.create({
+            data:{
+                email:userExist.email,
+                mobilenumber:number,
+                verify:true
+            }
+        })
+    }
+}
+
+export async function isVerified() {
+    const session = await getServerSession(authOption) 
+     const userExist =  await prisma.user.findFirst({
+        where:{
+            email:session?.user?.email || ""
+        }
+    })
+    if(userExist){
+        const isVerified = await prisma.verify.findFirst({
+            where:{
+                verify:true
+            }
+        })
+        if(isVerified){
+            return true;
+        }
+        return false
+    }
+    return false;
+}

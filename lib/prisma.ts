@@ -1,6 +1,6 @@
 // Create a new file at /lib/prisma.js
 
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from './generated/prisma';
 
 // This declaration is to satisfy TypeScript in a JavaScript file.
 // It tells TypeScript about the global `prisma` property we're creating.

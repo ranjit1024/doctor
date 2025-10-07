@@ -1,4 +1,6 @@
 "use client"
+import Logo from '@/components/ui/logo';
+import { useRouter } from 'next/navigation';
 import React, { useState, useRef, KeyboardEvent, ClipboardEvent, ChangeEvent, FormEvent } from 'react';
 
 export default function Home() {
@@ -9,6 +11,7 @@ export default function Home() {
   const [loading, setLoading] = useState<boolean>(false);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
+  const router = useRouter()
   const validatePhone = (number: string): boolean => {
     const regex = /^[6-9]\d{9}$/;
     return regex.test(number);
@@ -24,14 +27,10 @@ export default function Home() {
 
   const handleSendOTP = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
       e.preventDefault();
-    //   const response = await Verify({number:phone});
-      
-      
     if (!validatePhone(phone) ) {
       setError('Please enter a valid 10-digit Indian mobile number');
       return;
     }
-    
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -76,6 +75,7 @@ export default function Home() {
     }
     setLoading(true);
     alert('Phone verified successfully!');
+    router.push('/medvisit/appointment/book')
     setLoading(false);
   };
 
@@ -156,19 +156,9 @@ export default function Home() {
               {step === 1 ? (
                 <>
                   <div className="mb-8 mt-23 max-md:mt-1">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-2xl mb-4 lg:hidden">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="w-10 h-10 text-indigo-600"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                    <div className="inline-flex items-center justify-center w-13 h-13 bg-indigo-100 rounded-2xl mb-4 lg:hidden">
+                   <Logo height={40} width={40}/>
+                   
                     </div>
                     <h1 className="text-3xl font-bold text-gray-900 mb-2">
                       Verify Phone
@@ -269,20 +259,7 @@ export default function Home() {
               ) : (
                 <>
                   <div className="mb-8">
-                    <div className="inline-flex items-center justify-center w-14 h-14 bg-green-100 rounded-2xl mb-4 lg:hidden">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="w-10 h-10 text-green-600"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
+                   
                     <h1 className="text-3xl font-bold text-gray-900 mb-2">
                       Enter Code
                     </h1>
@@ -327,7 +304,7 @@ export default function Home() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full bg-indigo-600 text-white py-4 px-6 rounded-xl text-lg font-semibold hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 transition-all shadow-lg shadow-indigo-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none mb-6"
+                      className="w-full bg-indigo-700 text-white py-4 px-6 rounded-xl text-lg font-semibold hover:bg-indigo-500 focus:ring-4 focus:ring-indigo-200 transition-all shadow-lg shadow-indigo-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none mb-6"
                     >
                       {loading ? (
                         <span className="flex items-center justify-center gap-3">

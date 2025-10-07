@@ -2,6 +2,7 @@
 import React from 'react';
 import { Clock ,MapPin,Calendar } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { isVerified } from '@/lib/otp';
  
  export const DoctorAppointmentCard = () => {
   const router = useRouter()
@@ -44,8 +45,13 @@ import { useRouter } from 'next/navigation';
         </div>
 
         {/* Minimal Button */}
-        <button onClick={()=>{
-          router.push("/auth/otp")
+        <button onClick={async()=>{
+          const response = await isVerified();
+          console.log(response)
+          if(!response){
+            router.push("/auth/otp")
+            return;
+          }
         }} className="w-full bg-gray-900 hover:bg-gray-800 text-white font-medium py-4 rounded-2xl transition-colors duration-200">
           Book Appointment
         </button>

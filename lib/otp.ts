@@ -2,7 +2,7 @@
 import prisma from "./prisma"
 import { authOption } from "./auth";
 import { getServerSession } from "next-auth";
-export async function verify({number}:{number:string}) {
+export async function verifyNumber({number}:{number:string}) {
     const session = await getServerSession(authOption) 
     const userExist =  await prisma.user.findFirst({
         where:{
@@ -10,14 +10,16 @@ export async function verify({number}:{number:string}) {
         }
     })
     if(userExist){
-        prisma.verify.create({
+        await prisma.verify.create({
             data:{
                 email:userExist.email,
                 mobilenumber:number,
                 verify:true
             }
         })
+        return true;
     }
+    return false;
 }
 
 export async function isVerified() {

@@ -52,6 +52,9 @@ import { isVerified } from '@/lib/otp';
             router.push("/auth/otp")
             return;
           }
+          else{
+            router.push('/medvisit/appointment/book')
+          }
         }} className="w-full bg-gray-900 hover:bg-gray-800 text-white font-medium py-4 rounded-2xl transition-colors duration-200">
           Book Appointment
         </button>

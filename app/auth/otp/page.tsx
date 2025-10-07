@@ -1,7 +1,9 @@
 "use client"
 import Logo from '@/components/ui/logo';
+import { verifyNumber } from '@/lib/otp';
 import { useRouter } from 'next/navigation';
 import React, { useState, useRef, KeyboardEvent, ClipboardEvent, ChangeEvent, FormEvent } from 'react';
+
 
 export default function Home() {
   const [step, setStep] = useState<number>(1);
@@ -74,8 +76,12 @@ export default function Home() {
       return;
     }
     setLoading(true);
-    alert('Phone verified successfully!');
-    router.push('/medvisit/appointment/book')
+    const response =  await verifyNumber({number:phone})
+    console.log(response)
+    if(response){
+      router.push('/medvisit/appointment/book')
+    }
+    // alert('Phone verified successfully!');
     setLoading(false);
   };
 

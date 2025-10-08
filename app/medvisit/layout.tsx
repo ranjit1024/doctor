@@ -6,19 +6,16 @@ import { useEffect } from "react";
 import Image from "next/image";
 import logo from "../../public/logo.png";
 import Loader from "@/components/ui/loader";
-import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import {
   Calendar1Icon,
   CalendarClockIcon,
   CalendarCheck2,
   HomeIcon,
-  User,
-  User2,
-  UserCheck2Icon,
   
 } from "lucide-react";
 import ProfileIcon from "@/components/ui/profile";
+
 
 export default function Home({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -44,10 +41,11 @@ export default function Home({ children }: { children: React.ReactNode }) {
           <Image src={logo} height={20} width={30} alt="logo" />
           <p className="text-[1rem] max-md:font-[500] font-[500] text-zinc-800">MedVisit</p>
         </div>
-        <button className="rounded-full w-9 h-9 flex justify-center items-center border bg-transparent text-black"
-        >
+        <div className="flex gap-5 items-center">
+
           <ProfileIcon/>
-        </button>
+        </div>
+        
       </div>
       <div className="grid grid-cols-[20%_80%] max-md:h-[100%] max-md:grid-cols-1 max-md:grid-rows-[95%_5%]  relative">
         <div className="max-md:hidden">
@@ -169,41 +167,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 </div>
               </motion.div>
 
-              <div
-                className={`flex items-end hover:cursor-pointer relative   `}
-              >
-                <motion.div
-                  initial={{
-                    y: 25,
-                    opacity: 0,
-                  }}
-                  animate={{
-                    y: 0,
-                    opacity: 1,
-                  }}
-                  transition={{
-                    duration: 0.4,
-                    delay: 1.3,
-                  }}
-                  className="flex items-center w-[18%] fixed bottom-3  gap-3 hover:bg-primary/10 rounded-md hover:cursor-pointer py-2 px-1"
-                  onClick={() => {}}
-                >
-                  <div>
-                    {/* <Image
-                        src={String(session.user?.image)}
-                        width={35}
-                        height={20}
-                        alt="user"
-                        className="rounded-full"
-                      /> */}
-                  </div>
-                  <div>
-                    <p className="text-md text-neutral-800 font-medium">
-                      {session.user?.name}
-                    </p>
-                  </div>
-                </motion.div>
-              </div>
+            
             </div>
           </motion.div>
         </div>

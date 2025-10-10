@@ -1,7 +1,7 @@
 "use server"
 import { getServerSession } from "next-auth";
-import { authOption } from "./auth";
-import prisma from "./prisma";
+import { authOption } from "../auth";
+import prisma from "../prisma";
 export async function newUser() {
     const session = await getServerSession(authOption);
     const find = await prisma.user.findFirst({

@@ -2,7 +2,7 @@
 import React from 'react';
 import { Clock ,MapPin,Calendar } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { isVerified } from '@/lib/otp';
+import { isVerified } from '@/lib/actions/otp';
  
  export const DoctorAppointmentCard = () => {
   const router = useRouter()

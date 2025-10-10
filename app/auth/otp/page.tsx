@@ -1,36 +1,46 @@
-"use client"
-import Logo from '@/components/ui/logo';
-import { verifyNumber } from '@/lib/otp';
-import { useRouter } from 'next/navigation';
-import React, { useState, useRef, KeyboardEvent, ClipboardEvent, ChangeEvent, FormEvent } from 'react';
-
+"use client";
+import Logo from "@/components/ui/logo";
+import { Verify } from "@/lib/actions/verify";
+import { verifyNumber } from "@/lib/actions/otp";
+import { useRouter } from "next/navigation";
+import React, {
+  useState,
+  useRef,
+  KeyboardEvent,
+  ClipboardEvent,
+  ChangeEvent,
+  FormEvent,
+} from "react";
 
 export default function Home() {
   const [step, setStep] = useState<number>(1);
-  const [phone, setPhone] = useState<string>('');
-  const [otp, setOtp] = useState<string[]>(['', '', '', '', '', '']);
-  const [error, setError] = useState<string>('');
+  const [phone, setPhone] = useState<string>("");
+  const [otp, setOtp] = useState<string[]>(["", "", "", "", "", ""]);
+  const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [generateOTP, setGenerateOTP] = useState<number | "Invalid Number">(0);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  const router = useRouter()
+  const router = useRouter();
   const validatePhone = (number: string): boolean => {
     const regex = /^[6-9]\d{9}$/;
     return regex.test(number);
   };
 
   const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    const value = e.target.value.replace(/\D/g, '');
+    const value = e.target.value.replace(/\D/g, "");
     if (value.length <= 10) {
       setPhone(value);
-      setError('');
+      setError("");
     }
   };
 
-  const handleSendOTP = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
-      e.preventDefault();
-    if (!validatePhone(phone) ) {
-      setError('Please enter a valid 10-digit Indian mobile number');
+  const handleSendOTP = async (
+    e: FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    e.preventDefault();
+    if (!validatePhone(phone)) {
+      setError("Please enter a valid 10-digit Indian mobile number");
       return;
     }
     setLoading(true);
@@ -42,7 +52,7 @@ export default function Home() {
 
   const handleOtpChange = (index: number, value: string): void => {
     if (!/^\d*$/.test(value)) return;
-    
+
     const newOtp = [...otp];
     newOtp[index] = value;
     setOtp(newOtp);
@@ -52,49 +62,64 @@ export default function Home() {
     }
   };
 
-  const handleOtpKeyDown = (index: number, e: KeyboardEvent<HTMLInputElement>): void => {
-    if (e.key === 'Backspace' && !otp[index] && index > 0) {
+  const handleOtpKeyDown = (
+    index: number,
+    e: KeyboardEvent<HTMLInputElement>
+  ): void => {
+    if (e.key === "Backspace" && !otp[index] && index > 0) {
       inputRefs.current[index - 1]?.focus();
     }
   };
 
   const handleOtpPaste = (e: ClipboardEvent<HTMLDivElement>): void => {
     e.preventDefault();
-    const pastedData = e.clipboardData.getData('text').slice(0, 6);
+    const pastedData = e.clipboardData.getData("text").slice(0, 6);
     if (!/^\d+$/.test(pastedData)) return;
 
-    const newOtp = pastedData.split('');
-    setOtp([...newOtp, ...Array(6 - newOtp.length).fill('')]);
+    const newOtp = pastedData.split("");
+    setOtp([...newOtp, ...Array(6 - newOtp.length).fill("")]);
   };
 
-  const handleVerifyOTP = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+  const handleVerifyOTP = async (
+    e: FormEvent<HTMLFormElement>
+  ): Promise<void> => {
     e.preventDefault();
-    const otpValue = otp.join('');
-    
+    const otpValue = otp.join("");
+
     if (otpValue.length !== 6) {
-      setError('Please enter complete 6-digit OTP');
+      setError("Please enter complete 6-digit OTP");
       return;
     }
     setLoading(true);
-    const response =  await verifyNumber({number:phone})
-    console.log(response)
-    if(response){
-      router.push('/medvisit/appointment/book')
+    const date = otp.join("")
+    if (String(generateOTP) === date) {
+      await verifyNumber({ number: phone });
+      router.push("/medvisit/appointment/book");
+    } else {
+      // console.log(generateOTP == Number(otp.join('')))
+      console.log("OTP array:", otp);
+      console.log("Joined OTP:", otp.join(""));
+      console.log("Converted date:", Number(otp.join("")));
+      console.log("Type of date:", typeof Number(otp.join("")));
+      console.log("generateOTP:", generateOTP);
+      console.log("Type of generateOTP:", typeof generateOTP);
+      console.log("Are they equal?", generateOTP === date);
+      console.log(generateOTP);
+      alert("Invaid OTP");
     }
     // alert('Phone verified successfully!');
     setLoading(false);
   };
 
   const handleResendOTP = (): void => {
-    setOtp(['', '', '', '', '', '']);
-    setError('');
-    alert('OTP resent to +91 ' + phone);
+    setOtp(["", "", "", "", "", ""]);
+    setError("");
+    alert("OTP resent to +91 " + phone);
   };
 
   return (
     <div className="min-h-[100vh] bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center ">
       <div className="w-full h-[100vh]">
-     
         <div className="bg-white  h-full shadow-2xl overflow-hidden">
           <div className="grid lg:grid-cols-2 gap-0 h-full">
             {/* Left Side - Branding/Info */}
@@ -116,8 +141,8 @@ export default function Home() {
               <h2 className="text-3xl font-bold mb-3">Secure Verification</h2>
               <p className="text-indigo-100 text-center text-sm leading-relaxed">
                 {step === 1
-                  ? 'We need to verify your phone number to secure your account and protect against unauthorized access.'
-                  : 'A 6-digit verification code has been sent to your mobile number via SMS.'}
+                  ? "We need to verify your phone number to secure your account and protect against unauthorized access."
+                  : "A 6-digit verification code has been sent to your mobile number via SMS."}
               </p>
               <div className="mt-8 space-y-3">
                 <div className="flex items-center gap-3">
@@ -163,14 +188,14 @@ export default function Home() {
                 <>
                   <div className="mb-8 mt-23 max-md:mt-1">
                     <div className="inline-flex items-center justify-center w-13 h-13 bg-indigo-100 rounded-2xl mb-4 lg:hidden">
-                   <Logo height={40} width={40}/>
-                   
+                      <Logo height={40} width={40} />
                     </div>
                     <h1 className="text-3xl font-bold text-gray-900 mb-2">
                       Verify Phone
                     </h1>
                     <p className="text-sm text-gray-600">
-                      Please enter your mobile number to receive a verification code
+                      Please enter your mobile number to receive a verification
+                      code
                     </p>
                   </div>
 
@@ -184,7 +209,9 @@ export default function Home() {
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none">
-                          <span className="text-gray-600 font-semibold text-base">+91</span>
+                          <span className="text-gray-600 font-semibold text-base">
+                            +91
+                          </span>
                         </div>
                         <input
                           id="phone"
@@ -195,8 +222,8 @@ export default function Home() {
                           maxLength={10}
                           className={`w-full pl-16 pr-5 py-4 text-lg border-2 rounded-xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 outline-none transition-all ${
                             error
-                              ? 'border-red-400 bg-red-50'
-                              : 'border-gray-200 bg-gray-50 hover:border-gray-300'
+                              ? "border-red-400 bg-red-50"
+                              : "border-gray-200 bg-gray-50 hover:border-gray-300"
                           }`}
                         />
                       </div>
@@ -225,7 +252,12 @@ export default function Home() {
                     <button
                       type="submit"
                       disabled={loading}
-                      
+                      onClick={async () => {
+                        console.log("clicked");
+                        const res = await Verify({ number: phone });
+                        setGenerateOTP(res);
+                        console.log(res);
+                      }}
                       className="w-full bg-indigo-600 text-white py-4 px-6 rounded-xl text-lg font-semibold hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 transition-all shadow-lg shadow-indigo-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none"
                     >
                       {loading ? (
@@ -253,7 +285,7 @@ export default function Home() {
                           {"Sending OTP..."}
                         </span>
                       ) : (
-                        'Send Verification Code'
+                        "Send Verification Code"
                       )}
                     </button>
 
@@ -265,7 +297,6 @@ export default function Home() {
               ) : (
                 <>
                   <div className="mb-8">
-                   
                     <h1 className="text-3xl font-bold text-gray-900 mb-2">
                       Enter Code
                     </h1>
@@ -289,11 +320,15 @@ export default function Home() {
                         {otp.map((digit, index) => (
                           <input
                             key={index}
-                            ref={(el) => {inputRefs.current[index] = el}}
+                            ref={(el) => {
+                              inputRefs.current[index] = el;
+                            }}
                             type="text"
                             inputMode="numeric"
                             value={digit}
-                            onChange={(e) => handleOtpChange(index, e.target.value)}
+                            onChange={(e) =>
+                              handleOtpChange(index, e.target.value)
+                            }
                             onKeyDown={(e) => handleOtpKeyDown(index, e)}
                             maxLength={1}
                             className="max-md:w-12 max-md:rounded-lg max-md:font-medium  max-md:h-12 w-14 h-16 text-center text-2xl font-bold text-gray-900 bg-gray-50 border-2 border-gray-200 rounded-xl hover:border-gray-300 focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 outline-none transition-all"
@@ -337,7 +372,7 @@ export default function Home() {
                           {"Verifying..."}
                         </span>
                       ) : (
-                        'Verify & Continue'
+                        "Verify & Continue"
                       )}
                     </button>
 

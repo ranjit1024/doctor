@@ -12,10 +12,8 @@ import {
   CalendarClockIcon,
   CalendarCheck2,
   HomeIcon,
-  
 } from "lucide-react";
 import ProfileIcon from "@/components/ui/profile";
-
 
 export default function Home({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -39,13 +37,13 @@ export default function Home({ children }: { children: React.ReactNode }) {
       <div className="flex items-center gap-1 border-b z-10 fixed top-0  w-[100%] bg-white  justify-between p-3">
         <div className="flex items-center gap-1">
           <Image src={logo} height={20} width={30} alt="logo" />
-          <p className="text-[1rem] max-md:font-[500] font-[500] text-zinc-800">MedVisit</p>
+          <p className="text-[1rem] max-md:font-[500] font-[500] text-zinc-800">
+            MedVisit
+          </p>
         </div>
         <div className="flex gap-5 items-center">
-
-          <ProfileIcon/>
+          <ProfileIcon />
         </div>
-        
       </div>
       <div className="grid grid-cols-[20%_80%] max-md:h-[100%] max-md:grid-cols-1 max-md:grid-rows-[95%_5%]  relative">
         <div className="max-md:hidden">
@@ -88,7 +86,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 <NavItem
                   icon={<Calendar1Icon size={16} />}
                   label="Book Appoitment "
-                  active={pathname.includes('appointment')?true:false}
+                  active={pathname.includes("appointment") ? true : false}
                 />
               </motion.div>
 
@@ -113,7 +111,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 <NavItem
                   icon={<CalendarClockIcon size={16} />}
                   label="Upcomming Appointment "
-                  active={pathname.includes('upcomming')?true:false}
+                  active={pathname.includes("upcomming") ? true : false}
                 />
               </motion.div>
               <motion.div
@@ -137,7 +135,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 <NavItem
                   icon={<CalendarCheck2 size={16} />}
                   label="Completed Appointment"
-                  active={pathname.includes('completed')?true:false}
+                  active={pathname.includes("completed") ? true : false}
                 />
               </motion.div>
 
@@ -166,36 +164,45 @@ export default function Home({ children }: { children: React.ReactNode }) {
                   />
                 </div>
               </motion.div>
-
-            
             </div>
           </motion.div>
         </div>
         <div className="mt-15">{children}</div>
         {/* //mobile div */}
         <div className="z-10 md:hidden bg-gray-100 fixed bottom-0 w-[100%]  flex justify-between">
-      <div className="flex w-[100%] justify-between items-center">
-        <button onClick={()=>{
-          router.push('/medvisit/appointment')
-        }} className={`${pathname.includes('appointment')? 'flex border-b-2 text-gray-900 border-gray-900 flex-col items-center gap-1.5 py-4 px-4npx pri group w-full':'flex flex-col items-center gap-1.5 py-4 px-4 group w-full'}`}>
+          <div className="flex w-[100%] justify-between items-center">
+            <button
+              onClick={() => {
+                router.push("/medvisit/appointment");
+              }}
+              className={`${
+                pathname.includes("appointment")
+                  ? "flex border-b-2 text-gray-900 border-gray-900 flex-col items-center gap-1.5 py-4 px-4npx pri group w-full"
+                  : "flex flex-col items-center gap-1.5 py-4 px-4 group w-full"
+              }`}
+            >
+              <HomeIcon className="w-5 h-5 text-gray-900 group-hover:text-gray-900 transition-colors" />
+              <span className="text-xs font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
+                Home
+              </span>
+            </button>
 
-          <HomeIcon className="w-5 h-5 text-gray-900 group-hover:text-gray-900 transition-colors"/>
-          <span className="text-xs font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
-            Home
-          </span>
-        </button>
-
-        <button onClick={()=>{
-          router.push('/medvisit/upcomming')
-        }} className={`${pathname.includes('completed') || pathname.includes('upcomming') ? 'flex flex-col items-center gap-1.5 py-4 px-4 group 0 w-full border-b-2 border-gray-900':'flex flex-col items-center gap-1.5 py-4 px-4 group 0 w-full'}`}>
-          <Calendar1Icon className="w-5 h-5 text-gray-900" />
-          <span className="text-xs font-medium text-gray-900">
-            Your Appointments
-          </span>
-        </button>
-      </div>
-   
-          
+            <button
+              onClick={() => {
+                router.push("/medvisit/upcomming");
+              }}
+              className={`${
+                pathname.includes("completed") || pathname.includes("upcomming")
+                  ? "flex flex-col items-center gap-1.5 py-4 px-4 group 0 w-full border-b-2 border-gray-900"
+                  : "flex flex-col items-center gap-1.5 py-4 px-4 group 0 w-full"
+              }`}
+            >
+              <Calendar1Icon className="w-5 h-5 text-gray-900" />
+              <span className="text-xs font-medium text-gray-900">
+                Your Appointments
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

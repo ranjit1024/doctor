@@ -1,8 +1,17 @@
 "use client";
 import { DoctorAppointmentCard } from "@/components/ui/dockappoitmentCard";
-import { newUser } from "@/lib/newuser";
-import { useEffect } from "react";
+import { newUser } from "@/lib/actions/newuser";
+import { useEffect, useState } from "react";
+import { doctorList } from "@/lib/actions/doctor";
 export default function Home() {
+ 
+  useEffect(()=>{
+    async function response() {
+      const res = await doctorList();
+      console.log(res)
+    }
+    response()
+  },[])
   useEffect(()=>{
     newUser()
   },[])

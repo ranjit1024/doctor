@@ -1,6 +1,6 @@
 "use server"
-import prisma from "./prisma"
-import { authOption } from "./auth";
+import prisma from "../prisma"
+import { authOption } from "../auth";
 import { getServerSession } from "next-auth";
 export async function verifyNumber({number}:{number:string}) {
     const session = await getServerSession(authOption) 

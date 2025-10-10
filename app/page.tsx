@@ -17,29 +17,31 @@ import MobileAppointmentBanner from "@/components/ui/Mbanner";
 import { useMediaQuery } from "react-responsive";
 import { useRouter } from "next/navigation";
 
-export default function App(){
-  const isMobile = useMediaQuery({maxWidth:768});
-  return isMobile ? <Mobile/>:<DeskTop/>
+export default function App() {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  return isMobile ? <Mobile /> : <DeskTop />;
 }
-function Mobile(){
-  const router = useRouter()
-  return  <div className="p-3">
-      <header className="bg-white flex   top-5 w-[99%] max-md:w-[95%]    z-10  items-center justify-between gap-2  rounded-2xl px-4 py-2 shadow-blue-200 shadow backdrop-blur-md" >
+function Mobile() {
+  const router = useRouter();
+  return (
+    <div className="p-3">
+      <header className="bg-white flex   top-5 w-[99%] max-md:w-[95%]    z-10  items-center justify-between gap-2  rounded-2xl px-4 py-2 shadow-blue-200 shadow backdrop-blur-md">
         <div className="flex items-center gap-2">
-            <Image src={logo} height={20} width={30} alt="logo" />
-            <p className="text-[1.1rem] pt-1 font-[500] text-gray-900">MedVisit</p>
-          </div>
+          <Image src={logo} height={20} width={30} alt="logo" />
+          <p className="text-[1.1rem] pt-1 font-[500] text-gray-900">
+            MedVisit
+          </p>
+        </div>
       </header>
       <div className="h-[85vh] max-md:relative flex justify-center items-center  w-[100%] mt-20 max-md:mt-0">
-         
-         <motion.div
-             initial={{ opacity: 0, x: -20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
-          className="space-y-4  ">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="space-y-4  "
+        >
           <div className="text-start font-medium text-[3.7rem] max-md:text-[3.5rem] text-zinc-900 space-y-2">
-           
             <h1 className=" leading-18  "> Skip the</h1>
             <p className="leading-16">Calls Book </p>
             <p className="leading-16">Care online </p>
@@ -51,37 +53,38 @@ function Mobile(){
             </p>
           </div>
           <div className="text-start mt-7">
-            <Button onClick={()=>{router.push('/auth/signin')}} className="w-fit bg-indigo-600 px-7 py-6 text-md hover:bg-indigo-800 hover:cursor-pointer hover:">
+            <Button
+              onClick={() => {
+                router.push("/auth/signin");
+              }}
+              className="w-fit bg-indigo-600 px-7 py-6 text-md hover:bg-indigo-800 hover:cursor-pointer hover:"
+            >
               Book Appointment
             </Button>
           </div>
-          </motion.div>
-          
+        </motion.div>
       </div>
       <div className="grid grid-cols-2 relative">
         <div className="flex flex-col gap-4">
-          <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
           >
-        <LatestVisitedDoctor/>
+            <LatestVisitedDoctor />
           </motion.div>
           <motion.div
-          initial={{ opacity: 0, y: -20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
           >
-        <TotoalAppointment/>
+            <TotoalAppointment />
           </motion.div>
         </div>
         <div className="pl-3 pt-3 pb-3 bg-transparent relative ">
-          <div className=" bg-transparent border-2 rounded-tl-2xl rounded-bl-2xl -z-1 h-[90%] absolute top-5 w-[100%]">
-  
-
-          </div>
+          <div className=" bg-transparent border-2 rounded-tl-2xl rounded-bl-2xl -z-1 h-[90%] absolute top-5 w-[100%]"></div>
         </div>
       </div>
       <div className="mt-25">
@@ -89,115 +92,107 @@ function Mobile(){
           Working Process
         </h2>
         <div className="grid grid-cols-[100%] w-[100%] h-[100%] mt-10 p-2">
-         
-        <div className="flex gap-10 flex-col relative w-[100%]">
-          <div className="absolute w-[100%] h-[100%] flex justify-center">
+          <div className="flex gap-10 flex-col relative w-[100%]">
+            <div className="absolute w-[100%] h-[100%] flex justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
+                viewport={{ once: true, amount: 0.3 }}
+                className="w-[2px] rounded-2xl animate-pulse bg-gradient-to-t to-gray-300 from-gray-100 -z-10"
+              ></motion.div>
+            </div>
             <motion.div
-            initial={{ opacity: 0, scale:0 }}
-  whileInView={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.8, ease: "easeOut", delay:0.7 }}
-  viewport={{ once: true, amount: 0.3 }}
- 
-            className="w-[2px] rounded-2xl animate-pulse bg-gradient-to-t to-gray-300 from-gray-100 -z-10"></motion.div>
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="w-[100%]"
+            >
+              <BookAppointmentButton
+                title="Book Appointment"
+                subtitle="shedule online in minutes"
+                order={1}
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="w-[100%]"
+            >
+              <BookAppointmentButton
+                title="Consult a Docktor "
+                subtitle="Meet with specialists doctor in local "
+                order={2}
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="w-[100%]"
+            >
+              <BookAppointmentButton
+                title="Diagnosis & Tests"
+                subtitle="Get accurate reports "
+                order={3}
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="w-[100%]"
+            >
+              <BookAppointmentButton
+                title="Treatment & Follow-up"
+                subtitle="Follw-up care and support "
+                order={4}
+              />
+            </motion.div>
           </div>
-            <motion.div
-            initial={{ opacity: 0, x: 20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
-  className="w-[100%]"
-            >
-
-           <BookAppointmentButton
-              title="Book Appointment"
-              subtitle="shedule online in minutes"
-              order={1}
-            />
-            </motion.div>
-
-            <motion.div
-            initial={{ opacity: 0, x: 20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut", delay:0.1 }}
-  viewport={{ once: true, amount: 0.3 }}
-  className="w-[100%]"
-            >
-
-            <BookAppointmentButton
-              title="Consult a Docktor "
-              subtitle="Meet with specialists doctor in local "
-              order={2}
-            />
-            </motion.div>
-
-            <motion.div
-            initial={{ opacity: 0, x: 20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut", delay:0.2 }}
-  viewport={{ once: true, amount: 0.3 }}
-  className="w-[100%]"
-            >
-              
-           <BookAppointmentButton
-              title="Diagnosis & Tests"
-              subtitle="Get accurate reports "
-              order={3}
-            />
-            </motion.div>
-
-            <motion.div
-            initial={{ opacity: 0, x: 20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut", delay:0.3 }}
-  viewport={{ once: true, amount: 0.3 }}
-  className="w-[100%]"
-            >
-
-            <BookAppointmentButton
-              title="Treatment & Follow-up"
-              subtitle="Follw-up care and support "
-              order={4}
-            />
-            </motion.div>
-        </div>
         </div>
       </div>
-      <motion.div 
-      initial={{ opacity: 0, x: 20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut",  }}
-  viewport={{ once: true, amount: 0.3 }}
-
-      
-      className="mt-20">
-            <div className="flex justify-center items-start p-2 flex-col w-full ">
-              <button className="px-3 py-[0.3rem] rounded-2xl border-1 bg-gradient-to-br from-gray-50/80  to-violet-50  text-gray-900  font-medium">
-                Why Choose Us
-              </button>
-              <div className="mt-6">
-                <h1 className="text-[3.2rem]   font-medium">Trusted by </h1>
-                <h1 className="text-[3.2rem] -mt-3 w-[100%] font-medium ">
-                  Thousands of Patients
-                </h1>
-              </div>
-              <p className="mt-4 font-normal text-gray-600">
-                We differentiate ourselves by providing not only exceptional
-                treatment but also a comforting, reassuring experience that
-                places your well-being at the center of everything we do
-              </p>
-            </div>
-           
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+        className="mt-20"
+      >
+        <div className="flex justify-center items-start p-2 flex-col w-full ">
+          <button className="px-3 py-[0.3rem] rounded-2xl border-1 bg-gradient-to-br from-gray-50/80  to-violet-50  text-gray-900  font-medium">
+            Why Choose Us
+          </button>
+          <div className="mt-6">
+            <h1 className="text-[3.2rem]   font-medium">Trusted by </h1>
+            <h1 className="text-[3.2rem] -mt-3 w-[100%] font-medium ">
+              Thousands of Patients
+            </h1>
+          </div>
+          <p className="mt-4 font-normal text-gray-600">
+            We differentiate ourselves by providing not only exceptional
+            treatment but also a comforting, reassuring experience that places
+            your well-being at the center of everything we do
+          </p>
+        </div>
       </motion.div>
 
       <motion.div
-      initial={{ opacity: 0, x: -20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut", }}
-  viewport={{ once: true, amount: 0.3 }}
-
-      className="mt-15 grid ">
-        <MobileAppointmentBanner/>
-        
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+        className="mt-15 grid "
+      >
+        <MobileAppointmentBanner />
       </motion.div>
       <footer className="w-[100%] border-t-1 pt-3  mt-10 flex justify-between ">
         <div className="flex items-center gap-2">
@@ -212,10 +207,11 @@ function Mobile(){
           </li>
         </ul>
       </footer>
-      </div>
+    </div>
+  );
 }
 function DeskTop() {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className="p-4">
       <header>
@@ -264,7 +260,14 @@ function DeskTop() {
             </motion.div>
           </div>
           <div className="text-end">
-            <Button onClick={()=>{router.push('/contact')}} variant={"outline"}>Contact</Button>
+            <Button
+              onClick={() => {
+                router.push("/contact");
+              }}
+              variant={"outline"}
+            >
+              Contact
+            </Button>
           </div>
         </motion.nav>
       </header>
@@ -287,79 +290,85 @@ function DeskTop() {
               </Icon>
             </motion.div>
 
-            <motion.div 
-            initial={{ opacity: 0, y: -50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
-            className="absolute top-43 left-10 ">
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="absolute top-43 left-10 "
+            >
               <LatestVisitedDoctor />
             </motion.div>
           </div>
         </div>
         <div className="flex relative item-center justify-center w-[100%] flex-col">
-          <motion.div 
+          <motion.div
             initial={{ scale: 0, opacity: 0 }}
-  animate={{ scale: 1, opacity: 1 }}
-  transition={{
-    type: "spring",
-    stiffness: 100,
-    damping: 20
-  }}
-          className="absolute top-30  left-20">
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 20,
+            }}
+            className="absolute top-30  left-20"
+          >
             <Icon>
               <HeartPlusIcon />
             </Icon>
           </motion.div>
           <motion.div
-
-           initial={{ scale: 0, opacity: 0 }}
-  animate={{ scale: 1, opacity: 1 }}
-  transition={{
-    type: "spring",
-    stiffness: 100,
-    damping: 20
-  }}
-          className="absolute top-30  right-20">
- 
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 20,
+            }}
+            className="absolute top-30  right-20"
+          >
             <Icon>
               <Pill />
             </Icon>
           </motion.div>
           <motion.div
-           initial={{ y:10, opacity: 0 }}
-  animate={{ y: 0, opacity: 1 }}
-  transition={{
-    type: "spring",
-    stiffness: 100,
-    damping: 20
-  }}
-          className="space-y-7 pb-20 ">
-          <div className="text-center">
-            <h1 className="text-[4.5rem] -mb-5 ">Skip the calls</h1>
-            <h1 className="text-[4.5rem] ">Book care online</h1>
-          </div>
-          <div className="text-center  text-gray-500  flex justify-center ">
-            <p className="w-[80%] text-lg">
-              Healthcare that fits the schedule. View real‑time slots from
-              trusted local docktors, lock in a visit in a few clicks
-            </p>
-          </div>
-          <div className="text-center">
-            <Button onClick={()=>{
-              router.push('/auth/signin')
-            }} className="w-fit bg-indigo-600 px-7 py-6 text-md hover:bg-indigo-800 hover:cursor-pointer hover:">
-              Book Appointment
-            </Button>
-          </div>
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 20,
+            }}
+            className="space-y-7 pb-20 "
+          >
+            <div className="text-center">
+              <h1 className="text-[4.5rem] -mb-5 ">Skip the calls</h1>
+              <h1 className="text-[4.5rem] ">Book care online</h1>
+            </div>
+            <div className="text-center  text-gray-500  flex justify-center ">
+              <p className="w-[80%] text-lg">
+                Healthcare that fits the schedule. View real‑time slots from
+                trusted local docktors, lock in a visit in a few clicks
+              </p>
+            </div>
+            <div className="text-center">
+              <Button
+                onClick={() => {
+                  router.push("/auth/signin");
+                }}
+                className="w-fit bg-indigo-600 px-7 py-6 text-md hover:bg-indigo-800 hover:cursor-pointer hover:"
+              >
+                Book Appointment
+              </Button>
+            </div>
           </motion.div>
           <div className="flex justify-center absolute bottom-0 items-center w-full">
             <motion.div
-            initial={{ opacity: 0, scale:0.8 }}
-  whileInView={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
-            className="p-5">
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="p-5"
+            >
               <TotoalAppointment />
             </motion.div>
           </div>
@@ -369,24 +378,26 @@ function DeskTop() {
           <div className=" h-100 w-45  border-zinc-900/10 border-l-2 border-b-2 rounded-bl-2xl "></div>
           <div className=" h-80 absolute right-10  top-95 w-60  border-dashed   border-zinc-900/10 border-l-2 border-t-2 rounded-tl-2xl ">
             <motion.div
-             initial={{ scale: 0, opacity: 0 }}
-  animate={{ scale: 1, opacity: 1 }}
-  transition={{
-    type: "spring",
-    stiffness: 100,
-    damping: 20
-  }}
-            className="absolute -top-5  left-10">
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+              }}
+              className="absolute -top-5  left-10"
+            >
               <Icon>
                 <StethoscopeIcon />
               </Icon>
             </motion.div>
             <motion.div
-            initial={{ opacity: 0, y: -50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
-            className="absolute  -bottom-10  -left-20   ">
+              initial={{ opacity: 0, y: -50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="absolute  -bottom-10  -left-20   "
+            >
               <ServiceCard />
             </motion.div>
           </div>
@@ -398,12 +409,13 @@ function DeskTop() {
           Working Process
         </h2>
         <div className="w-[100%] grid grid-cols-[25%_50%_25%] ">
-          <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
-          className="flex flex-col gap-30 ">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="flex flex-col gap-30 "
+          >
             <BookAppointmentButton
               title="Book Appointment"
               subtitle="shedule online in minutes"
@@ -418,11 +430,12 @@ function DeskTop() {
           </motion.div>
 
           <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-  whileInView={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
-          className="grid  grid-cols-[30%_40%_30%] w-[100%]">
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="grid  grid-cols-[30%_40%_30%] w-[100%]"
+          >
             <div className="realtive flex flex-col  relative">
               <svg
                 className="absolute -right-4 -z-2 top-7"
@@ -569,11 +582,12 @@ function DeskTop() {
           </motion.div>
 
           <motion.div
-          initial={{ opacity: 0, x: 20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
-          className="flex flex-col gap-28">
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="flex flex-col gap-28"
+          >
             <BookAppointmentButton
               title="Diagnosis & Tests"
               subtitle="Get accurate reports "
@@ -589,10 +603,10 @@ function DeskTop() {
         <div className="mt-25">
           <div className="w-[100%] grid grid-cols-2 gap-3">
             <motion.div
-            initial={{ opacity: 0, x: -20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
             >
               <Image
                 className="rounded-2xl size-full"
@@ -606,17 +620,16 @@ function DeskTop() {
               />
             </motion.div>
             <motion.div
-            initial={{ opacity: 0, x: 20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
-            className="flex justify-center items-start p-5 flex-col w-full ">
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="flex justify-center items-start p-5 flex-col w-full "
+            >
               <button className="px-7 py-[0.4rem] rounded-2xl border-1 bg-gradient-to-br from-gray-50/80  to-violet-50  text-gray-900  font-medium">
                 Why Choose Us
               </button>
-              <div
-              
-              className="mt-6">
+              <div className="mt-6">
                 <h1 className="text-[3.2rem]   font-medium">Trusted by </h1>
                 <h1 className="text-[3.2rem] -mt-3 w-[100%] font-medium ">
                   Thousands of Patients
@@ -628,52 +641,54 @@ function DeskTop() {
                 places your well-being at the center of everything we do
               </p>
             </motion.div>
-            
           </div>
           <div className="mt-10 flex w-[100%] gap-5">
             <motion.div
-            initial={{ opacity: 0, y: -20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
-            className="">
-            <DoctorCard />
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              className=""
+            >
+              <DoctorCard />
             </motion.div>
             <motion.div
-            initial={{ opacity: 0, y: -20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" , delay:0.1}}
-  viewport={{ once: true, amount: 0.3 }}
-            className="">
-            <DoctorCard />
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className=""
+            >
+              <DoctorCard />
             </motion.div>
             <motion.div
-            initial={{ opacity: 0, y: -20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" , delay:0.2 }}
-  viewport={{ once: true, amount: 0.3 }}
-            className="">
-            <DoctorCard />
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className=""
+            >
+              <DoctorCard />
             </motion.div>
             <motion.div
-            initial={{ opacity: 0, y: -20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut", delay:0.4 }}
-  viewport={{ once: true, amount: 0.3 }}
-            className="">
-            <DoctorCard />
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className=""
+            >
+              <DoctorCard />
             </motion.div>
-            
           </div>
           <motion.div
-          initial={{ opacity: 0, x: 20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true, amount: 0.3 }}
-          className="w-[100%] mt-15">
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="w-[100%] mt-15"
+          >
             <AppointmentBanner />
           </motion.div>
-         
         </div>
       </div>
 

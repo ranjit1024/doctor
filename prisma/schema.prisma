@@ -25,3 +25,11 @@ model Verify{
   verify  Boolean?
   user  User  @relation(fields: [email], references: [email])
 }
+model Docktor{
+  id String @id @default(cuid())
+  name String
+  spaclist  String
+  aderess String
+  startTime String
+  endTime String
+}

@@ -24,6 +24,7 @@ const TotoalAppointment = () => {
             <Image
               width={200}
               height={200}
+              
               src={patient.avatar}
               alt={patient.name}
               className="w-full h-full object-cover"

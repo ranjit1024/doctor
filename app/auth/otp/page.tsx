@@ -10,9 +10,11 @@ import React, {
   ClipboardEvent,
   ChangeEvent,
   FormEvent,
+  useEffect,
 } from "react";
-
+import { checkVerify } from "@/lib/actions/verify";
 export default function Home() {
+  
   const [step, setStep] = useState<number>(1);
   const [phone, setPhone] = useState<string>("");
   const [otp, setOtp] = useState<string[]>(["", "", "", "", "", ""]);
@@ -20,7 +22,7 @@ export default function Home() {
   const [loading, setLoading] = useState<boolean>(false);
   const [generateOTP, setGenerateOTP] = useState<number | "Invalid Number">(0);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
-
+  const [isVerified, setisVerifies] = useState<boolean>(false)
   const router = useRouter();
   const validatePhone = (number: string): boolean => {
     const regex = /^[6-9]\d{9}$/;
@@ -34,7 +36,20 @@ export default function Home() {
       setError("");
     }
   };
-
+  useEffect(()=>{
+    async function check() {
+      const data = await checkVerify();
+      setisVerifies(data)
+      return data;
+    }
+    check()
+  },[])
+  useEffect(()=>{
+    console.log(isVerified)
+    if(isVerified){
+      router.push("/medvisit/appointment/")
+    }
+  },[isVerified])
   const handleSendOTP = async (
     e: FormEvent<HTMLFormElement>
   ): Promise<void> => {

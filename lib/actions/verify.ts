@@ -4,7 +4,8 @@ import z from "zod"
 import { PublishCommand } from "@aws-sdk/client-sns";
 import { SNSClient } from "@aws-sdk/client-sns"
 import crypto from "crypto";
-
+import { getServerSession } from "next-auth";
+import { authOption } from "../auth";
 const snsClient = new SNSClient({
   region: process.env.AWS_REGION || "",
   credentials: {
@@ -56,17 +57,17 @@ const phoneSchema = z
     return 'Invalid Number'
   }
   const otp = crypto.randomInt(100000, 999999);
-  const sms = await sendSMS(`+91${number}`, `your otp is ${otp}`);
+  const sms = await sendSMS(`+91${number}`, `your otp is ${otp} `);
   console.log(sms)
   return otp;
 }
-
-
-
-
-
-
-
-// Send to multiple different numbers
-
-
+export async function checkVerify(){
+  const session = await getServerSession(authOption)
+  const isVerifed = await prisma?.verify.findFirst({
+    where:{
+      email:session?.user?.email || ""
+    }
+  })
+  console.log(isVerifed)
+  return isVerifed ? true : false
+}

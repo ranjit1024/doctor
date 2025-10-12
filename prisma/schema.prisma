@@ -34,7 +34,6 @@ model Doctor{
   aderess String
   startTime DateTime
   endTime DateTime
-  sessions  Json[]
   limit  Limit[]
 }
 model Limit{

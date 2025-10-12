@@ -12,6 +12,7 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
 model User{
   id  String  @id @default(cuid())
   email String  @unique
@@ -25,11 +26,35 @@ model Verify{
   verify  Boolean?
   user  User  @relation(fields: [email], references: [email])
 }
-model Docktor{
+model Doctor{
   id String @id @default(cuid())
   name String
+  email String @unique
   spaclist  String
   aderess String
-  startTime String
-  endTime String
+  startTime DateTime
+  endTime DateTime
+  sessions  Json[]
+  limit  Limit[]
+}
+model Limit{
+  id String @id @default(cuid())
+  email String @unique
+  startTime DateTime
+  endTime   DateTime
+  limit Int
+  patient Int
+  doctor Doctor @relation(fields: [email], references: [email])
+}
+
+model Appoitment{
+  id String @id @default(cuid())
+  userEmail String
+  doctorEmail String
+  Date  DateTime
+  status  AppoitmentStatus
+}
+enum AppoitmentStatus{
+  PENDING
+  COMPLETEDsd
 }

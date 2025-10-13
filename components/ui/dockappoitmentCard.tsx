@@ -9,13 +9,15 @@ export const DoctorAppointmentCard = ({
   address,
   startTime,
   endTime,
-  id
+  id,
+  email
 }: {
   id: string;
   name: string;
   address: string;
   startTime: string;
   endTime: string;
+  email:string
 }) => {
   const router = useRouter();
   return (
@@ -29,7 +31,7 @@ export const DoctorAppointmentCard = ({
         </div>
         <div>
           <h2 className="text-xl font-semibold text-gray-900 mb-1">{name}</h2>
-          <p className="text-sm text-gray-500">{}</p>
+          <p className="text-sm text-gray-500">{email}</p>
         </div>
       </div>
 

@@ -19,6 +19,10 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
     ],
+    rules: {
+      "no-unused-expressions": "off",
+      "@typescript-eslint/no-unused-expressions": "off",
+    },
   },
 ];
 

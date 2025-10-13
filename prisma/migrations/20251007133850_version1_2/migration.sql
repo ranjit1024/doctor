@@ -1,3 +1,0 @@
--- AlterTable
-ALTER TABLE "User" ALTER COLUMN "phonumber" DROP NOT NULL,
-ALTER COLUMN "verify" DROP NOT NULL;

@@ -43,13 +43,13 @@ export default function Home() {
       return data;
     }
     check()
-  },[])
+  },[isVerified])
   useEffect(()=>{
     console.log(isVerified)
     if(isVerified){
       router.push("/medvisit/appointment/")
     }
-  },[isVerified])
+  },[router,isVerified])
   const handleSendOTP = async (
     e: FormEvent<HTMLFormElement>
   ): Promise<void> => {

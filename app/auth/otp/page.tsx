@@ -109,7 +109,7 @@ export default function Home() {
     const date = otp.join("")
     if (String(generateOTP) === date) {
       await verifyNumber({ number: phone });
-      router.push("/medvisit/appointment/book");
+      router.push("/medvisit/appointment");
     } else {
       // console.log(generateOTP == Number(otp.join('')))
       console.log("OTP array:", otp);

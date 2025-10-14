@@ -1,5 +1,4 @@
 "use server"
-import { email } from "zod";
 import prisma from "../prisma"
 export async function doctorList(){
     const data =  await prisma.doctor.findMany({

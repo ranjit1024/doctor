@@ -37,7 +37,7 @@ export default function Home() {
       setData(res);
     }
     response();
-  }, []);
+  }, [path]);
 
   useEffect(() => {
     async function response() {
